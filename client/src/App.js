@@ -6,8 +6,8 @@ function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
 
     // env file-ba is rakhatjuk
-    let key = 'Nr5dhSQgdGJqiq08ZcNNL4qDWulSFecLN0csorkIeRShESrCbY';
-    let secret = 'GgWDDVknhXZRKudMKyds7oIMfAE5ttdu2JcEi96F';
+    let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
+    let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
 
     // get authorization token
@@ -51,9 +51,9 @@ function App() {
 // <Animal animal={animal} key={index}/>
     return (
         <div className='App'>
-            {allTheAnimals.map((animal, index) => (
+{/*             {allTheAnimals.map((animal, index) => (
                <Animal animal={animal} key={index}/>
-            ))}
+            ))} */}
         </div>
     );
 }

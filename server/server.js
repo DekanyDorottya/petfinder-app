@@ -18,9 +18,8 @@ app.use(
     })
 );
 app.use(bodyParser.json());
-
  mongoose.connect(
-    'mongodb+srv://taksasbettina:fkwFhtX0qsRIAX1N@adoptpets.qhiehyf.mongodb.net/test'
+    'mongodb+srv://taksasbettina:yoM85tAN2SEt0Hmf@donatetopets.wc9gqxa.mongodb.net/test'
 ); 
 
 app.get('/', (req, res) => {
