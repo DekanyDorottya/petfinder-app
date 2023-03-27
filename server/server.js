@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const NewAnimal = require('./model/NewAnimal');
+const Animal = require('./model/Animal');
 const port = 5000;
 
 app.use(
@@ -29,6 +29,18 @@ app.get('/support', async (req, res) => {
     const supports = await NewAnimal.find()
     res.json(supports);
 });
+
+app.post('/api/animal', (req, res) => {
+    console.log(req.body)
+
+    const newAnimal = new Animal({
+        details: req.body.details,
+        donate: req.body.donate
+    })
+   newAnimal.save()
+    .then(newAnimal => res.json(newAnimal))
+    .catch(err => res.status(400).json({ success: false }));
+})
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);

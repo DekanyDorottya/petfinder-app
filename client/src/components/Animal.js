@@ -1,6 +1,29 @@
 import React from 'react';
 
 export default function Animal({ animal }) {
+
+    function handleSupport(e) {
+
+        e.preventDefault()
+        const data = { details: animal, donate: 0 }
+    
+        fetch('http://localhost:5000/api/animal', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => response.json())
+          .then(response => {
+            console.log(response);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        console.log(data)
+    
+      }
     return (
         <div>
             <div>{animal.name}</div>
@@ -10,7 +33,7 @@ export default function Animal({ animal }) {
                 "https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg"} 
                 alt="dog"
                 width="150" />
-                <button>Support</button>
+                <button onClick={handleSupport}>Support</button>
         </div>
     );
 }
