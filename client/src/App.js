@@ -2,7 +2,7 @@ import './App.css';
 
 function App() {
 
-
+// env file-ba is rakhatjuk
   let key = 'Nr5dhSQgdGJqiq08ZcNNL4qDWulSFecLN0csorkIeRShESrCbY';
   let secret = 'GgWDDVknhXZRKudMKyds7oIMfAE5ttdu2JcEi96F';
   let token;
