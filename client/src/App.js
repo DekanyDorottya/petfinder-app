@@ -42,18 +42,20 @@ function App() {
                 }
             )
                 .then((res) => res.json())
-                .then((data) => console.log(data.animals));
+                .then((data) => {console.log(data); setAllTheAnimals(data.animals) } );
+
         })
         .catch((err) => console.error(err));
     }, [])
     
 
-// <Animal animal={animal} key={index}/>
     return (
         <div className='App'>
-{/*             {allTheAnimals.map((animal, index) => (
+            <button>Show my supported animals</button>
+            {allTheAnimals.map((animal, index) => (
+                console.log(animal),
                <Animal animal={animal} key={index}/>
-            ))} */}
+            ))}
         </div>
     );
 }
