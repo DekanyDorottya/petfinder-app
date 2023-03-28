@@ -1,9 +1,12 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
+import SupportedAnimals from './components/SupportedAnimals';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
+    const [showAnimal, setShowAnimal] = useState(true)
+    const [showSupported, setShowSupported] = useState(false)
 
     // env file-ba is rakhatjuk
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
@@ -42,18 +45,20 @@ function App() {
                 }
             )
                 .then((res) => res.json())
-                .then((data) => console.log(data.animals));
+                .then((data) => {console.log(data); setAllTheAnimals(data.animals) } );
+
         })
         .catch((err) => console.error(err));
     }, [])
     
 
-// <Animal animal={animal} key={index}/>
     return (
         <div className='App'>
-{/*             {allTheAnimals.map((animal, index) => (
+            <button onClick={() => {setShowAnimal(false); setShowSupported(true)}}>Show my supported animals</button>
+            {showAnimal && allTheAnimals.map((animal, index) => (
                <Animal animal={animal} key={index}/>
-            ))} */}
+            ))}
+           {showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
         </div>
     );
 }
