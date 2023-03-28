@@ -30,6 +30,8 @@ app.get('/support', async (req, res) => {
     res.json(supports);
 });
 
+
+
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });

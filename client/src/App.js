@@ -4,7 +4,20 @@ import Animal from './components/Animal';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
+    const [sponsoredAnimals, setSponsoredAnimals] = useState([]);
 
+    const deleteAnimal = (id) => {
+        return fetch(`/api/animal/${id}`, { method: 'DELETE' }).then((res) =>
+            res.json()
+        );
+    };
+
+    const handleDelete = (id) => {
+        deleteAnimal(id);
+        setSponsoredAnimals((sponsoredAnimals) => {
+            return sponsoredAnimals.filter((animal) => animal._id !== id);
+        });
+    };
     // env file-ba is rakhatjuk
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
@@ -53,6 +66,7 @@ function App() {
         <div className='App'>
 {/*             {allTheAnimals.map((animal, index) => (
                <Animal animal={animal} key={index}/>
+               <button onChange={handleDelete(supportedANIMAL._id)}>Delete from Donate list</button>
             ))} */}
         </div>
     );
