@@ -1,38 +1,30 @@
+html {
+  background-image: url(https://media.istockphoto.com/id/487569919/vector/paw-print-pattern.jpg?s=612x612&w=0&k=20&c=TEjB0MXlZG6nHGqOuthe4gMLgRsQbbMd9Azzp65ufQg=);
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sticky {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+  
+  font-size: 30px;
+  background-color: #29191a;
+  color: #eeba30;
+}
+
+.main {
+  margin-top: 150px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  flex-wrap: wrap;
 }
