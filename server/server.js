@@ -52,6 +52,11 @@ app.get('/api/animal', (req, res) => {
         })
 })
 
+app.delete('/support/delete/:id', async (req, res) => {
+	const result = await Animal.findByIdAndDelete(req.params.id);
+	res.json({result});
+});
+
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);

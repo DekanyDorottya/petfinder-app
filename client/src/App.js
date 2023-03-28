@@ -10,6 +10,8 @@ function App() {
     const [showAnimal, setShowAnimal] = useState(true)
     const [showSupported, setShowSupported] = useState(false)
 
+    const [mySupportedAnimals, setMySupportedAnimals] = useState([])
+
     // env file-ba is rakhatjuk
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
@@ -66,14 +68,14 @@ function App() {
             {!filteredAnimals && 
                 showAnimal && 
                 allTheAnimals.map((animal, index) => (
-               <Animal animal={animal} key={index}/>
+               <Animal animal={animal} key={index} mySupportedAnimals={mySupportedAnimals} setMySupportedAnimals={setMySupportedAnimals}/>
             ))}
-           {showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
+           {showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported} mySupportedAnimals={mySupportedAnimals} setMySupportedAnimals={setMySupportedAnimals}/>}
 
            {filteredAnimals && 
                 showAnimal && 
                 filteredAnimals.map((animal, index) => (
-               <Animal animal={animal} key={index}/>
+               <Animal animal={animal} key={index} mySupportedAnimals={mySupportedAnimals} setMySupportedAnimals={setMySupportedAnimals}/>
             ))}
 {/*            {filteredAnimals && showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
 

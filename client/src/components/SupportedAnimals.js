@@ -2,7 +2,11 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 function SupportedAnimals(props){
-    const [mySupportedAnimals, setMySupportedAnimals] = useState([])
+
+    const mySupportedAnimals = props.mySupportedAnimals;
+    const setMySupportedAnimals = props.setMySupportedAnimals;
+
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/api/animal')
