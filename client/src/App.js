@@ -1,9 +1,12 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
+import SupportedAnimals from './components/SupportedAnimals';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
+    const [showAnimal, setShowAnimal] = useState(true)
+    const [showSupported, setShowSupported] = useState(false)
 
     // env file-ba is rakhatjuk
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
@@ -51,11 +54,11 @@ function App() {
 
     return (
         <div className='App'>
-            <button>Show my supported animals</button>
-            {allTheAnimals.map((animal, index) => (
-                console.log(animal),
+            <button onClick={() => {setShowAnimal(false); setShowSupported(true)}}>Show my supported animals</button>
+            {showAnimal && allTheAnimals.map((animal, index) => (
                <Animal animal={animal} key={index}/>
             ))}
+           {showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
         </div>
     );
 }
