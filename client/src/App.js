@@ -17,12 +17,22 @@ function App() {
         setAllTheAnimals(animalsTest);
     }); */
 
-    useEffect(() => {
+/*     useEffect(() => {
         fetch('http://localhost:5000/api/animal')
             .then((promise) => promise.json())
             .then((animals) => {
                 setMySupportedAnimals(animals);
             });
+    }, [mySupportedAnimals]); */
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetch('http://localhost:5000/api/animal');
+            const json = await data.json();
+            setMySupportedAnimals(json);
+        };
+        fetchData().catch(console.error);
     }, [mySupportedAnimals]);
 
     useEffect(() => {
