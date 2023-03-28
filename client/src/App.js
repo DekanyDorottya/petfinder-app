@@ -2,12 +2,10 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
 import Header from './components/Header';
-import animalsTest from './animalsTest';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState();
-    const [showAnimal, setShowAnimal] = useState(true);
     const [showSupported, setShowSupported] = useState(false);
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
 
@@ -15,7 +13,7 @@ function App() {
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
 
-   /*  useEffect(() => {
+    /*  useEffect(() => {
         setAllTheAnimals(animalsTest);
     }); */
 
@@ -26,7 +24,7 @@ function App() {
                 setMySupportedAnimals(animals);
             });
     }, [mySupportedAnimals]);
-     
+
     useEffect(() => {
         fetch('https://api.petfinder.com/v2/oauth2/token', {
             method: 'POST',
@@ -62,14 +60,6 @@ function App() {
             .catch((err) => console.error(err));
     }, []);
 
-
-
-
-    function handleSubmit(event) {
-        event.preventDefault()
-        console.log(event.target.value);
-        console.log('donate');
-    }
     return (
         <div className='App'>
             <Header
@@ -80,39 +70,44 @@ function App() {
                 allTheAnimals={allTheAnimals}
             />
 
-            {!filteredAnimals &&
-                !showSupported &&
-                allTheAnimals.map((animal, index) => (
-                    <Animal animal={animal}
-                    key={index}
-                    mySupportedAnimals={mySupportedAnimals}
-                    setMySupportedAnimals={setMySupportedAnimals} />
-                ))}
-
-            {filteredAnimals &&
-                !showSupported &&
-                filteredAnimals.map((animal, index) => (
-                    <Animal animal={animal}
-                    key={index}
-                    mySupportedAnimals={mySupportedAnimals}
-                    setMySupportedAnimals={setMySupportedAnimals} />
-                ))}
-
-            {showSupported &&
-                mySupportedAnimals.map((animal, index) => (
-                    <>
-                        <Animal animal={animal.details} 
+            <div className='main'>
+                {!filteredAnimals &&
+                    !showSupported &&
+                    allTheAnimals.map((animal, index) => (
+                        <Animal
+                            animal={animal}
                             key={index}
                             mySupportedAnimals={mySupportedAnimals}
-                            setMySupportedAnimals={setMySupportedAnimals} />
-                        <form onSubmit={(event) => handleSubmit(event)}>
-                            <label>
-                                <input type='text' />
-                            </label>
-                            <input type='submit' value='Donate' />
-                        </form>
-                    </>
-                ))}
+                            setMySupportedAnimals={setMySupportedAnimals}
+                            showSupported={showSupported}
+                        />
+                    ))}
+
+                {filteredAnimals &&
+                    !showSupported &&
+                    filteredAnimals.map((animal, index) => (
+                        <Animal
+                            animal={animal}
+                            key={index}
+                            mySupportedAnimals={mySupportedAnimals}
+                            setMySupportedAnimals={setMySupportedAnimals}
+                            showSupported={showSupported}
+                        />
+                    ))}
+
+                {showSupported &&
+                    mySupportedAnimals.map((animal, index) => (
+                        <>
+                            <Animal
+                                animal={animal.details}
+                                key={index}
+                                mySupportedAnimals={mySupportedAnimals}
+                                setMySupportedAnimals={setMySupportedAnimals}
+                                showSupported={showSupported}
+                            />
+                        </>
+                    ))}
+            </div>
         </div>
     );
 }
