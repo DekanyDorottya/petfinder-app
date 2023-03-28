@@ -63,6 +63,7 @@ function App() {
                 showSupported={showSupported}
             />
 
+            <div className='main'>
             {!filteredAnimals &&
                 !showSupported &&
                 allTheAnimals.map((animal, index) => (
@@ -91,6 +92,8 @@ function App() {
                         setMySupportedAnimals={setMySupportedAnimals}
                     />
                 ))}
+
+            </div>
         </div>
     );
 }

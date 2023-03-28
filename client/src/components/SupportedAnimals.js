@@ -21,14 +21,7 @@ function SupportedAnimals(props) {
     return (
         <>
             <div>
-{/*                 <button
-                    onClick={() => {
-                        props.setShowSupported(false);
-                        props.setShowAnimal(true);
-                    }}
-                >
-                    Back
-                </button> */}
+
                 {mySupportedAnimals.map((mySupportedAnimal) => (
                     <>
                         <div>{mySupportedAnimal.details.name}</div>
