@@ -4,6 +4,9 @@ function Header(props) {
     const setShowSupported = props.setShowSupported;
     const showSupported = props.showSupported;
 
+    const setShowForm = props.setShowForm;
+    const showForm = props.showForm;
+
     function handleType(event) {
         console.log(event.target.value);
 
@@ -58,11 +61,17 @@ function Header(props) {
                 </div>
 
                 {showSupported ? (
-                    <button onClick={handleBackFromSupportedAnimals}>
+                    <button
+                        className='supportedBtn'
+                        onClick={handleBackFromSupportedAnimals}
+                    >
                         Back
                     </button>
                 ) : (
-                    <button onClick={handleShowSupportedAnimals}>
+                    <button
+                        className='supportedBtn'
+                        onClick={handleShowSupportedAnimals}
+                    >
                         Show my supported animals
                     </button>
                 )}

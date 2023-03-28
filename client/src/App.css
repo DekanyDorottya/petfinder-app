@@ -1,6 +1,6 @@
-html {
-  background-image: url(https://media.istockphoto.com/id/487569919/vector/paw-print-pattern.jpg?s=612x612&w=0&k=20&c=TEjB0MXlZG6nHGqOuthe4gMLgRsQbbMd9Azzp65ufQg=);
-}
+/* html {
+  background-image: url(https://img.freepik.com/premium-vector/seamless-pattern-dog-paws-hand-lettering-vector-illustration_521637-33.jpg?w=2000);
+} */
 
 .App {
   text-align: center;
@@ -16,15 +16,60 @@ html {
 .header {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   
   font-size: 30px;
   background-color: #29191a;
   color: #eeba30;
 }
 
+select {
+  height: 35px;
+  background-color: #eeba30;
+  border-radius: 5px;
+  margin-left: 4px;
+}
+
+/* .search {
+  display: flex;
+  align-items: center;
+} */
+
 .main {
   margin-top: 150px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.card {
+  color: white;
+  text-align: center;
+  width: 250px;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #29191ae6;
+}
+
+img {
+  border-radius: 10px;
+}
+
+button, .submitBtn {
+  padding: 3px;
+  margin: 3px;
+  background-color: #eeba30;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover, select:hover, .submitBtn:hover {
+  background-color: #4e3c0b;
+}
+
+.supportedBtn {
+  height: 35px;  
 }

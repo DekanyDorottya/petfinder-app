@@ -4,6 +4,7 @@ export default function Animal({
     animal,
     mySupportedAnimals,
     setMySupportedAnimals,
+    showSupported
 }) {
     function handleSupport(e) {
         e.preventDefault();
@@ -50,23 +51,49 @@ export default function Animal({
             }
         });
     }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        console.log(event.target.value);
+        console.log('donate');
+    }
+
     return (
-        <div className={animal.name}>
-            <div>{animal.name}</div>
-            <div>{animal.type}</div>
-            <div>{animal.gender}</div>
-            <div>{animal.breeds.primary}</div>
-            <img
-                src={
-                    animal.photos.length !== 0
-                        ? animal.photos[0].small
-                        : 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg'
-                }
-                alt='dog'
-                width='150'
-            />
-            <button onClick={handleSupport}>Support</button>
-            <button onClick={(event) => handleDelete(event)}>Delete</button>
+        <div className='card'>
+            <div className={animal.name}>
+                <div>{animal.name}</div>
+                <div>{animal.type}</div>
+                <div>{animal.gender}</div>
+                <div>{animal.breeds.primary}</div>
+                <img
+                    src={
+                        animal.photos.length !== 0
+                            ? animal.photos[0].small
+                            : 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg'
+                    }
+                    alt='dog'
+                    width='150'
+                />
+                <br></br>
+                <button onClick={handleSupport}>Support</button>
+                <br></br>
+                <button onClick={(event) => handleDelete(event)}>Delete</button>
+                <br></br>
+                {showSupported && (
+                    <form onSubmit={(event) => handleSubmit(event)}>
+                        <label>
+                            <input type='text' />
+                        </label>
+                        <br></br>
+                        <input
+                            className='submitBtn'
+                            type='submit'
+                            value='Donate'
+                        />
+                    </form>
+                )}
+            </div>
         </div>
     );
 }
