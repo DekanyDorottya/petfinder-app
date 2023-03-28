@@ -7,7 +7,6 @@ import SupportedAnimals from './components/SupportedAnimals';
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState();
-    //const [showAnimal, setShowAnimal] = useState(true);
     const [showSupported, setShowSupported] = useState(false);
 
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
@@ -60,29 +59,40 @@ function App() {
                 key={0}
                 setFilteredAnimals={setFilteredAnimals}
                 allTheAnimals={allTheAnimals}
-                //setShowAnimal={setShowAnimal}
                 setShowSupported={setShowSupported}
                 showSupported={showSupported}
             />
-            {/* <button onClick={() => {setShowAnimal(false); setShowSupported(true)}}>Show my supported animals</button> */}
 
-            {!filteredAnimals && 
-                //showAnimal && 
+            {!filteredAnimals &&
                 !showSupported &&
                 allTheAnimals.map((animal, index) => (
-               <Animal animal={animal} key={index} mySupportedAnimals={mySupportedAnimals} setMySupportedAnimals={setMySupportedAnimals}/>
-            ))}
-           {showSupported && <SupportedAnimals /* setShowAnimal={setShowAnimal} */ setShowSupported={setShowSupported} mySupportedAnimals={mySupportedAnimals} setMySupportedAnimals={setMySupportedAnimals}/>}
+                    <Animal
+                        animal={animal}
+                        key={index}
+                        mySupportedAnimals={mySupportedAnimals}
+                        setMySupportedAnimals={setMySupportedAnimals}
+                    />
+                ))}
+            {showSupported && (
+                <SupportedAnimals
+                    setShowSupported={setShowSupported}
+                    mySupportedAnimals={mySupportedAnimals}
+                    setMySupportedAnimals={setMySupportedAnimals}
+                />
+            )}
 
-           {filteredAnimals && 
-                //showAnimal && 
+            {filteredAnimals &&
                 !showSupported &&
                 filteredAnimals.map((animal, index) => (
-               <Animal animal={animal} key={index} mySupportedAnimals={mySupportedAnimals} setMySupportedAnimals={setMySupportedAnimals}/>
-            ))}
+                    <Animal
+                        animal={animal}
+                        key={index}
+                        mySupportedAnimals={mySupportedAnimals}
+                        setMySupportedAnimals={setMySupportedAnimals}
+                    />
+                ))}
         </div>
     );
-
 }
 
 export default App;
