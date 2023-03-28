@@ -6,6 +6,6 @@ const animalShema = new Schema({
     donate: Number,
 });
 
-const NewAnimal = model('NewAnimal', animalShema);
+const Animal = model('Animal', animalShema);
 
-module.exports = NewAnimal;
+module.exports = Animal;

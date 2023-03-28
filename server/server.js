@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const NewAnimal = require('./model/NewAnimal');
+const Animal = require('./model/Animal');
 const port = 5000;
 
 app.use(
@@ -19,19 +19,43 @@ app.use(
 );
 app.use(bodyParser.json());
  mongoose.connect(
-    'mongodb+srv://taksasbettina:yoM85tAN2SEt0Hmf@donatetopets.wc9gqxa.mongodb.net/test'
+    "mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
 ); 
 
-app.get('/', (req, res) => {
-    res.send('Welcome support some animal!');
-});
-app.get('/support', async (req, res) => {
-    const supports = await NewAnimal.find()
-    res.json(supports);
-});
+// app.get('/', (req, res) => {
+//     res.send('Welcome support some animal!');
+// });
+// app.get('/support', async (req, res) => {
+//     const supports = await NewAnimal.find()
+//     res.json(supports);
+// });
+
+app.post('/api/animal', (req, res) => {
+    console.log(req.body)
+
+    const newAnimal = new Animal({
+        details: req.body.details,
+        donate: req.body.donate
+    })
+   newAnimal.save()
+    .then(newAnimal => res.json(newAnimal))
+    .catch(err => res.status(400).json({ success: false }));
+})
+
+app.get('/api/animal', (req, res) => {
+    Animal.find().then(animals => {
+        res.send(animals)
+        
+    })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
 
 
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
+
