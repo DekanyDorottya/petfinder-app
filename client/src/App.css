@@ -30,10 +30,23 @@ select {
   margin-left: 4px;
 }
 
-/* .search {
+.search {
   display: flex;
   align-items: center;
-} */
+}
+
+.description, .success {
+  background-color: #eeba30;
+  padding: 50px;
+}
+
+.successImg {
+  border-radius: 50%;
+}
+
+p {
+  text-align: justify;
+}
 
 .main {
   margin-top: 150px;
