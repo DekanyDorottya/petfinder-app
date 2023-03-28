@@ -47,11 +47,7 @@ function Header(props) {
                 <div className='welcome'>
                     <p>Sponsor an animal!</p>
                 </div>
-                <div className='sponsoredBtn'>
-                    <button>
-                        Sponsored animals
-                    </button>
-                </div>
+
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import SupportedAnimals from './components/SupportedAnimals';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
-    const [filteredAnimals, setFilteredAnimals] = useState([]);
+    const [filteredAnimals, setFilteredAnimals] = useState();
     const [showAnimal, setShowAnimal] = useState(true)
     const [showSupported, setShowSupported] = useState(false)
 
