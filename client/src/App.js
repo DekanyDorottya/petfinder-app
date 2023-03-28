@@ -2,10 +2,13 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
 import Header from './components/Header';
+import SupportedAnimals from './components/SupportedAnimals';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState([]);
+    const [showAnimal, setShowAnimal] = useState(true)
+    const [showSupported, setShowSupported] = useState(false)
 
     // env file-ba is rakhatjuk
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
@@ -58,15 +61,32 @@ function App() {
                 setFilteredAnimals={setFilteredAnimals}
                 allTheAnimals={allTheAnimals}
             />
+            <button onClick={() => {setShowAnimal(false); setShowSupported(true)}}>Show my supported animals</button>
+
+            {!filteredAnimals && 
+                showAnimal && 
+                allTheAnimals.map((animal, index) => (
+               <Animal animal={animal} key={index}/>
+            ))}
+           {showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
+
+           {filteredAnimals && 
+                showAnimal && 
+                filteredAnimals.map((animal, index) => (
+               <Animal animal={animal} key={index}/>
+            ))}
+{/*            {filteredAnimals && showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
+
             {filteredAnimals
                 ? filteredAnimals.map((animal, index) => (
                       <Animal animal={animal} key={index} />
                   ))
                 : allTheAnimals.map((animal, index) => (
                       <Animal animal={animal} key={index} />
-                  ))}
+                  ))} */}
         </div>
     );
+
 }
 
 export default App;
