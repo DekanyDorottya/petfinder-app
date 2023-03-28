@@ -2,21 +2,31 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
 import Header from './components/Header';
-import SupportedAnimals from './components/SupportedAnimals';
+import animalsTest from './animalsTest';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState();
+    const [showAnimal, setShowAnimal] = useState(true);
     const [showSupported, setShowSupported] = useState(false);
-
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
 
-    // env file-ba is rakhatjuk
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
 
-    // get authorization token
+   /*  useEffect(() => {
+        setAllTheAnimals(animalsTest);
+    }); */
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/animal')
+            .then((promise) => promise.json())
+            .then((animals) => {
+                setMySupportedAnimals(animals);
+            });
+    }, [mySupportedAnimals]);
+     
     useEffect(() => {
         fetch('https://api.petfinder.com/v2/oauth2/token', {
             method: 'POST',
@@ -53,47 +63,57 @@ function App() {
             .catch((err) => console.error(err));
     }, []);
 
+
+
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        console.log(event.target.value);
+        console.log('donate');
+    }
     return (
         <div className='App'>
             <Header
+                setShowSupported={setShowSupported}
+                showSupported={showSupported}
                 key={0}
                 setFilteredAnimals={setFilteredAnimals}
                 allTheAnimals={allTheAnimals}
-                setShowSupported={setShowSupported}
-                showSupported={showSupported}
             />
 
-            <div className='main'>
             {!filteredAnimals &&
                 !showSupported &&
                 allTheAnimals.map((animal, index) => (
-                    <Animal
-                        animal={animal}
-                        key={index}
-                        mySupportedAnimals={mySupportedAnimals}
-                        setMySupportedAnimals={setMySupportedAnimals}
-                    />
-                ))}
-            {showSupported && (
-                <SupportedAnimals
-                    setShowSupported={setShowSupported}
+                    <Animal animal={animal}
+                    key={index}
                     mySupportedAnimals={mySupportedAnimals}
-                    setMySupportedAnimals={setMySupportedAnimals}
-                />
-            )}
+                    setMySupportedAnimals={setMySupportedAnimals} />
+                ))}
 
             {filteredAnimals &&
                 !showSupported &&
                 filteredAnimals.map((animal, index) => (
-                    <Animal
-                        animal={animal}
-                        key={index}
-                        mySupportedAnimals={mySupportedAnimals}
-                        setMySupportedAnimals={setMySupportedAnimals}
-                    />
+                    <Animal animal={animal}
+                    key={index}
+                    mySupportedAnimals={mySupportedAnimals}
+                    setMySupportedAnimals={setMySupportedAnimals} />
                 ))}
 
-            </div>
+            {showSupported &&
+                mySupportedAnimals.map((animal, index) => (
+                    <>
+                        <Animal animal={animal.details} 
+                            key={index}
+                            mySupportedAnimals={mySupportedAnimals}
+                            setMySupportedAnimals={setMySupportedAnimals} />
+                        <form onSubmit={(event) => handleSubmit(event)}>
+                            <label>
+                                <input type='text' />
+                            </label>
+                            <input type='submit' value='Donate' />
+                        </form>
+                    </>
+                ))}
         </div>
     );
 }

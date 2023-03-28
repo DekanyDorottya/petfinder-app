@@ -22,13 +22,6 @@ app.use(bodyParser.json());
     "mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
 ); 
 
-// app.get('/', (req, res) => {
-//     res.send('Welcome support some animal!');
-// });
-// app.get('/support', async (req, res) => {
-//     const supports = await NewAnimal.find()
-//     res.json(supports);
-// });
 
 app.post('/api/animal', (req, res) => {
     console.log(req.body)
@@ -52,12 +45,12 @@ app.get('/api/animal', (req, res) => {
         })
 })
 
+
+
 app.delete('/support/delete/:id', async (req, res) => {
 	const result = await Animal.findByIdAndDelete(req.params.id);
 	res.json({result});
 });
-
-
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });

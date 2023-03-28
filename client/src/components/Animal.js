@@ -7,37 +7,23 @@ export default function Animal({
 }) {
     function handleSupport(e) {
         e.preventDefault();
+        const data = { details: animal, donate: 0 };
 
-        console.log(e.target.parentElement.className);
-        console.log(mySupportedAnimals); ///always shows empty!!!???
-
-        if (
-            mySupportedAnimals.some(
-                (supportedAnimal) =>
-                    supportedAnimal.details.name ===
-                    e.target.parentElement.className
-            )
-        ) {
-            console.log('this character has been already added');
-        } else {
-            const data = { details: animal, donate: 0 };
-
-            fetch('http://localhost:5000/api/animal', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+        fetch('http://localhost:5000/api/animal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
             })
-                .then((response) => response.json())
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-            console.log(data);
-        }
+            .catch((error) => {
+                console.log(error);
+            });
+        console.log(data);
     }
 
     function handleDelete(event) {
@@ -64,7 +50,6 @@ export default function Animal({
             }
         });
     }
-
     return (
         <div className={animal.name}>
             <div>{animal.name}</div>

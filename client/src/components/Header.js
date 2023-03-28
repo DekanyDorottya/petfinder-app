@@ -29,7 +29,6 @@ function Header(props) {
     function handleBackFromSupportedAnimals() {
         setShowSupported(false);
     }
-
     return (
         <div className='sticky'>
             <div className='header'>
