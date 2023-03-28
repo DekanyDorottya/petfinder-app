@@ -32,13 +32,13 @@ function Header(props) {
                 <div className='search'>
 
                     <select id="type" name="type" onChange={(event) => handleType(event)}>
-                    <option value="" disabled selected>Choose a type...</option>
+                    <option value="">Choose a type...</option>
                     <option value="Dog">Dog</option>
                     <option value="Cat">Cat</option>
                     </select>
 
                     <select id="gender" name="gender" onChange={(event) => handleGender(event)}>
-                    <option value="" disabled selected>Choose a gender...</option>
+                    <option value="">Choose a gender...</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                     </select>
