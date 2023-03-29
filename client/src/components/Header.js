@@ -33,7 +33,7 @@ function Header(props) {
         <div className='sticky'>
             <div className='header'>
                 <div className='search'>
-                    <select
+                    {/*                     <select
                         id='type'
                         name='type'
                         onChange={(event) => handleType(event)}
@@ -41,7 +41,7 @@ function Header(props) {
                         <option value=''>Choose a type...</option>
                         <option value='Dog'>Dog</option>
                         <option value='Cat'>Cat</option>
-                    </select>
+                    </select> */}
 
                     <select
                         id='gender'
@@ -58,11 +58,17 @@ function Header(props) {
                 </div>
 
                 {showSupported ? (
-                    <button onClick={handleBackFromSupportedAnimals}>
+                    <button
+                        className='supportedBtn'
+                        onClick={handleBackFromSupportedAnimals}
+                    >
                         Back
                     </button>
                 ) : (
-                    <button onClick={handleShowSupportedAnimals}>
+                    <button
+                        className='supportedBtn'
+                        onClick={handleShowSupportedAnimals}
+                    >
                         Show my supported animals
                     </button>
                 )}
