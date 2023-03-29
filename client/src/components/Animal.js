@@ -85,14 +85,14 @@ export default function Animal({
     return (
         <div /* className='card' */>
         <div className={animal.name}>
-            <div>{animal.name}</div>
-            <div>{animal.type}</div>
+            <div><strong>{animal.name}</strong></div>
             <div>{animal.gender}</div>
-            <div>{animal.breeds.primary}</div>
+            <div>{animal.contact.email}</div>
+            <div>City: {animal.contact.address.city}</div>
             <img
                 src={
                     animal.photos.length !== 0
-                        ? animal.photos[0].medium
+                        ? animal.photos[0].large
                         //: 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg'
                         : generatePhoto()
                 }
