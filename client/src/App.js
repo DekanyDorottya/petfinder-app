@@ -109,30 +109,36 @@ function App() {
             {!filteredAnimals &&
                 !showSupported &&
                 allTheAnimals.map((animal, index) => (
-                    <Animal
-                        animal={animal}
-                        key={index}
-                        mySupportedAnimals={mySupportedAnimals}
-                        setMySupportedAnimals={setMySupportedAnimals}
-                        setRender={setRender}
-                    />
+                    <div className='card'>
+
+                        <Animal
+                            animal={animal}
+                            key={index}
+                            mySupportedAnimals={mySupportedAnimals}
+                            setMySupportedAnimals={setMySupportedAnimals}
+                            setRender={setRender}
+                        />
+                    </div>
                 ))}
 
             {filteredAnimals &&
                 !showSupported &&
                 filteredAnimals.map((animal, index) => (
-                    <Animal
-                        animal={animal}
-                        key={index}
-                        mySupportedAnimals={mySupportedAnimals}
-                        setMySupportedAnimals={setMySupportedAnimals}
-                        setRender={setRender}
-                    />
+                    <div className='card'>
+
+                        <Animal
+                            animal={animal}
+                            key={index}
+                            mySupportedAnimals={mySupportedAnimals}
+                            setMySupportedAnimals={setMySupportedAnimals}
+                            setRender={setRender}
+                        />
+                    </div>
                 ))}
 
             {showSupported &&
                 mySupportedAnimals.map((animal, index) => (
-                    <>
+                    <div className='card'>
                         <Animal
                             animal={animal.details}
                             key={index}
@@ -147,9 +153,10 @@ function App() {
                             <label>
                                 <input type='text' />
                             </label>
-                            <input type='submit' value='Donate' />
+                            <br></br>
+                            <input type='submit' value='Donate' className='submitBtn'/>
                         </form>
-                    </>
+                    </div>
                 ))}
 
             </div>
