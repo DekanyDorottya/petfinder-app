@@ -22,13 +22,6 @@ app.use(bodyParser.json());
     "mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
 ); 
 
-// app.get('/', (req, res) => {
-//     res.send('Welcome support some animal!');
-// });
-// app.get('/support', async (req, res) => {
-//     const supports = await NewAnimal.find()
-//     res.json(supports);
-// });
 
 app.post('/api/animal', (req, res) => {
     console.log(req.body)
@@ -53,8 +46,24 @@ app.get('/api/animal', (req, res) => {
 })
 
 
-
-
+app.patch('/api/todo/:id', async (req, res) => {
+    const { title, comment } = req.body;
+    const { id } = req.params;
+    try {
+      const todo = await Todo.findByIdAndUpdate(id, { title, comment }, { new: true });
+      if (!todo) {
+        return res.status(404).send({ message: 'Todo item not found' });
+      }
+      res.send(todo);
+    } catch (error) {
+      res.status(500).send({ message: error.message });
+    }
+  })
+  
+app.delete('/support/delete/:id', async (req, res) => {
+	const result = await Animal.findByIdAndDelete(req.params.id);
+	res.json({result});
+});
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });

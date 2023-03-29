@@ -2,32 +2,31 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
 import Header from './components/Header';
-import SupportedAnimals from './components/SupportedAnimals';
+//import animalsTest from './animalsTest';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState();
-    const [showAnimal, setShowAnimal] = useState(true)
-    const [showSupported, setShowSupported] = useState(false)
+    const [showAnimal, setShowAnimal] = useState(true);
+    const [showSupported, setShowSupported] = useState(false);
+    const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
 
-    const deleteAnimal = (id) => {
-        return fetch(`/api/animal/${id}`, { method: 'DELETE' }).then((res) =>
-            res.json()
-        );
-    };
-
-    const handleDelete = (id) => {
-        deleteAnimal(id);
-        setSponsoredAnimals((sponsoredAnimals) => {
-            return sponsoredAnimals.filter((animal) => animal._id !== id);
-        });
-    };
-    // env file-ba is rakhatjuk
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
 
-    // get authorization token
+   /*  useEffect(() => {
+        setAllTheAnimals(animalsTest);
+    }); */
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/animal')
+            .then((promise) => promise.json())
+            .then((animals) => {
+                setMySupportedAnimals(animals);
+            });
+    }, [mySupportedAnimals]);
+     
     useEffect(() => {
         fetch('https://api.petfinder.com/v2/oauth2/token', {
             method: 'POST',
@@ -60,45 +59,63 @@ function App() {
                 )
                     .then((res) => res.json())
                     .then((data) => setAllTheAnimals(data.animals));
-                //.then((data) => console.log(data.animals))
             })
             .catch((err) => console.error(err));
     }, []);
 
-    // <Animal animal={animal} key={index}/>
+
+
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        console.log(event.target.value);
+        console.log('donate');
+    }
     return (
         <div className='App'>
             <Header
+                setShowSupported={setShowSupported}
+                showSupported={showSupported}
                 key={0}
                 setFilteredAnimals={setFilteredAnimals}
                 allTheAnimals={allTheAnimals}
             />
-            <button onClick={() => {setShowAnimal(false); setShowSupported(true)}}>Show my supported animals</button>
 
-            {!filteredAnimals && 
-                showAnimal && 
+            {!filteredAnimals &&
+                !showSupported &&
                 allTheAnimals.map((animal, index) => (
-               <Animal animal={animal} key={index}/>
-            ))}
-           {showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
-           <button onChange={handleDelete(supportedANIMAL._id)}>Delete from Donate list</button>
-           {filteredAnimals && 
-                showAnimal && 
-                filteredAnimals.map((animal, index) => (
-               <Animal animal={animal} key={index}/>
-            ))}
-{/*            {filteredAnimals && showSupported && <SupportedAnimals setShowAnimal={setShowAnimal} setShowSupported={setShowSupported}/>}
+                    <Animal animal={animal}
+                    key={index}
+                    mySupportedAnimals={mySupportedAnimals}
+                    setMySupportedAnimals={setMySupportedAnimals} />
+                ))}
 
-            {filteredAnimals
-                ? filteredAnimals.map((animal, index) => (
-                      <Animal animal={animal} key={index} />
-                  ))
-                : allTheAnimals.map((animal, index) => (
-                      <Animal animal={animal} key={index} />
-                  ))} */}
+            {filteredAnimals &&
+                !showSupported &&
+                filteredAnimals.map((animal, index) => (
+                    <Animal animal={animal}
+                    key={index}
+                    mySupportedAnimals={mySupportedAnimals}
+                    setMySupportedAnimals={setMySupportedAnimals} />
+                ))}
+
+            {showSupported &&
+                mySupportedAnimals.map((animal, index) => (
+                    <>
+                        <Animal animal={animal.details} 
+                            key={index}
+                            mySupportedAnimals={mySupportedAnimals}
+                            setMySupportedAnimals={setMySupportedAnimals} />
+                        <form onSubmit={(event) => handleSubmit(event)}>
+                            <label>
+                                <input type='text' />
+                            </label>
+                            <input type='submit' value='Donate' />
+                        </form>
+                    </>
+                ))}
         </div>
     );
-
 }
 
 export default App;
