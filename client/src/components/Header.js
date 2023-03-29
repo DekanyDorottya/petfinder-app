@@ -4,9 +4,6 @@ function Header(props) {
     const setShowSupported = props.setShowSupported;
     const showSupported = props.showSupported;
 
-    const setShowForm = props.setShowForm;
-    const showForm = props.showForm;
-
     function handleType(event) {
         console.log(event.target.value);
 
@@ -36,7 +33,7 @@ function Header(props) {
         <div className='sticky'>
             <div className='header'>
                 <div className='search'>
-{/*                     <select
+                    <select
                         id='type'
                         name='type'
                         onChange={(event) => handleType(event)}
@@ -44,7 +41,7 @@ function Header(props) {
                         <option value=''>Choose a type...</option>
                         <option value='Dog'>Dog</option>
                         <option value='Cat'>Cat</option>
-                    </select> */}
+                    </select>
 
                     <select
                         id='gender'
@@ -57,21 +54,15 @@ function Header(props) {
                     </select>
                 </div>
                 <div className='welcome'>
-                    <h1>Sponsor a dog!</h1>
+                    <p>Sponsor an animal!</p>
                 </div>
 
                 {showSupported ? (
-                    <button
-                        className='supportedBtn'
-                        onClick={handleBackFromSupportedAnimals}
-                    >
+                    <button onClick={handleBackFromSupportedAnimals}>
                         Back
                     </button>
                 ) : (
-                    <button
-                        className='supportedBtn'
-                        onClick={handleShowSupportedAnimals}
-                    >
+                    <button onClick={handleShowSupportedAnimals}>
                         Show my supported animals
                     </button>
                 )}

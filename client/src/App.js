@@ -2,28 +2,31 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
 import Header from './components/Header';
-import Description from './components/Description';
-import SuccessStory from './components/SuccessStory';
+import animalsTest from './animalsTest';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState();
+    const [showAnimal, setShowAnimal] = useState(true);
     const [showSupported, setShowSupported] = useState(false);
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
 
-    const key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
-    const secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
+    let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
+    let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await fetch('http://localhost:5000/api/animal');
-            const json = await data.json();
-            setMySupportedAnimals(json);
-        };
-        fetchData().catch(console.error);
-    }, [mySupportedAnimals]);
+   /*  useEffect(() => {
+        setAllTheAnimals(animalsTest);
+    }); */
 
+    useEffect(() => {
+        fetch('http://localhost:5000/api/animal')
+            .then((promise) => promise.json())
+            .then((animals) => {
+                setMySupportedAnimals(animals);
+            });
+    }, [mySupportedAnimals]);
+     
     useEffect(() => {
         fetch('https://api.petfinder.com/v2/oauth2/token', {
             method: 'POST',
@@ -39,6 +42,7 @@ function App() {
             .then((res) => res.json())
             .then((data) => {
                 token = data.access_token;
+                console.log(data.access_token);
             })
             .then(() => {
                 // use token to fetch animals
@@ -59,6 +63,14 @@ function App() {
             .catch((err) => console.error(err));
     }, []);
 
+
+
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        console.log(event.target.value);
+        console.log('donate');
+    }
     return (
         <div className='App'>
             <Header
@@ -69,48 +81,39 @@ function App() {
                 allTheAnimals={allTheAnimals}
             />
 
-            <div className='main'>
-                {!showSupported && <Description />}
+            {!filteredAnimals &&
+                !showSupported &&
+                allTheAnimals.map((animal, index) => (
+                    <Animal animal={animal}
+                    key={index}
+                    mySupportedAnimals={mySupportedAnimals}
+                    setMySupportedAnimals={setMySupportedAnimals} />
+                ))}
 
-                {!filteredAnimals &&
-                    !showSupported &&
-                    allTheAnimals.map((animal, index) => (
-                        <Animal
-                            animal={animal}
+            {filteredAnimals &&
+                !showSupported &&
+                filteredAnimals.map((animal, index) => (
+                    <Animal animal={animal}
+                    key={index}
+                    mySupportedAnimals={mySupportedAnimals}
+                    setMySupportedAnimals={setMySupportedAnimals} />
+                ))}
+
+            {showSupported &&
+                mySupportedAnimals.map((animal, index) => (
+                    <>
+                        <Animal animal={animal.details} 
                             key={index}
                             mySupportedAnimals={mySupportedAnimals}
-                            setMySupportedAnimals={setMySupportedAnimals}
-                            showSupported={showSupported}
-                        />
-                    ))}
-
-                {filteredAnimals &&
-                    !showSupported &&
-                    filteredAnimals.map((animal, index) => (
-                        <Animal
-                            animal={animal}
-                            key={index}
-                            mySupportedAnimals={mySupportedAnimals}
-                            setMySupportedAnimals={setMySupportedAnimals}
-                            showSupported={showSupported}
-                        />
-                    ))}
-
-                {!showSupported && <SuccessStory />}
-
-                {showSupported &&
-                    mySupportedAnimals.map((animal, index) => (
-                        <>
-                            <Animal
-                                animal={animal.details}
-                                key={index}
-                                mySupportedAnimals={mySupportedAnimals}
-                                setMySupportedAnimals={setMySupportedAnimals}
-                                showSupported={showSupported}
-                            />
-                        </>
-                    ))}
-            </div>
+                            setMySupportedAnimals={setMySupportedAnimals} />
+                        <form onSubmit={(event) => handleSubmit(event)}>
+                            <label>
+                                <input type='text' />
+                            </label>
+                            <input type='submit' value='Donate' />
+                        </form>
+                    </>
+                ))}
         </div>
     );
 }

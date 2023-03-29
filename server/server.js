@@ -19,30 +19,47 @@ app.use(
 );
 app.use(bodyParser.json());
  mongoose.connect(
-    //"mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
-    'mongodb+srv://taksasbettina:yoM85tAN2SEt0Hmf@donatetopets.wc9gqxa.mongodb.net/test'
+    "mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
 ); 
 
-app.get('/api/animal', async (req, res) => {
-    const animals = await Animal.find();
-    res.send(animals);
 
-})
+app.post('/api/animal', (req, res) => {
+    console.log(req.body)
 
-app.post('/api/animal', async (req, res) => {
-    const data = await req.body;
     const newAnimal = new Animal({
-        details: data.details,
-        donate: data.donate
-    });
-    newAnimal.save()
+        details: req.body.details,
+        donate: req.body.donate
+    })
+   newAnimal.save()
     .then(newAnimal => res.json(newAnimal))
     .catch(err => res.status(400).json({ success: false }));
-});
+})
+
+app.get('/api/animal', (req, res) => {
+    Animal.find().then(animals => {
+        res.send(animals)
+        
+    })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 
-
-
+app.patch('/api/todo/:id', async (req, res) => {
+    const { title, comment } = req.body;
+    const { id } = req.params;
+    try {
+      const todo = await Todo.findByIdAndUpdate(id, { title, comment }, { new: true });
+      if (!todo) {
+        return res.status(404).send({ message: 'Todo item not found' });
+      }
+      res.send(todo);
+    } catch (error) {
+      res.status(500).send({ message: error.message });
+    }
+  })
+  
 app.delete('/support/delete/:id', async (req, res) => {
 	const result = await Animal.findByIdAndDelete(req.params.id);
 	res.json({result});
