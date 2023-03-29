@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
 import Header from './components/Header';
-//import animalsTest from './animalsTest';
+import animalsTest from './animalsTest';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
@@ -42,6 +42,7 @@ function App() {
             .then((res) => res.json())
             .then((data) => {
                 token = data.access_token;
+                console.log(data.access_token);
             })
             .then(() => {
                 // use token to fetch animals

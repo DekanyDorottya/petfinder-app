@@ -19,8 +19,7 @@ app.use(
 );
 app.use(bodyParser.json());
  mongoose.connect(
-    //"mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
-    'mongodb+srv://taksasbettina:yoM85tAN2SEt0Hmf@donatetopets.wc9gqxa.mongodb.net/test'
+    "mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
 ); 
 
 
@@ -28,13 +27,13 @@ app.post('/api/animal', (req, res) => {
     console.log(req.body)
 
     const newAnimal = new Animal({
-        details: data.details,
-        donate: data.donate
-    });
-    newAnimal.save()
+        details: req.body.details,
+        donate: req.body.donate
+    })
+   newAnimal.save()
     .then(newAnimal => res.json(newAnimal))
     .catch(err => res.status(400).json({ success: false }));
-});
+})
 
 app.get('/api/animal', (req, res) => {
     Animal.find().then(animals => {
@@ -61,10 +60,6 @@ app.patch('/api/todo/:id', async (req, res) => {
     }
   })
   
-app.delete('/support/delete/:id', async (req, res) => {
-	const result = await Animal.findByIdAndDelete(req.params.id);
-	res.json({result});
-});
 app.delete('/support/delete/:id', async (req, res) => {
 	const result = await Animal.findByIdAndDelete(req.params.id);
 	res.json({result});
