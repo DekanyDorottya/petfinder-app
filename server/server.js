@@ -48,13 +48,16 @@ app.get('/api/animal', (req, res) => {
 
 app.patch('/support/update/:id',  async (req, res) => {
 
-    console.log(req.params.id);
-    console.log(req.body);
+    //console.log(req.params.id);
+    //console.log(req.body);
 
-    const donatedAmount = req.body;
-    const id = req.params;
+    const donatedAmount = req.body.donateAmount;
+    const id = req.params.id;
 
-    /* try {
+    console.log('id', id);
+    console.log('donatedAmount', donatedAmount);
+
+    try {
         const animal = await Animal.findByIdAndUpdate(id, {donate: donatedAmount}, { new: true });
         if (!animal) {
           return res.status(404).send({ message: 'Animal item not found' });
@@ -62,7 +65,7 @@ app.patch('/support/update/:id',  async (req, res) => {
         res.send(animal);
       } catch (error) {
         res.status(500).send({ message: error.message });
-      } */
+      }
 })
   
 app.delete('/support/delete/:id', async (req, res) => {
