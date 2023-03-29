@@ -1,8 +1,6 @@
 function Header(props) {
     const setFilteredAnimals = props.setFilteredAnimals;
     const allTheAnimals = props.allTheAnimals;
-    const setShowSupported = props.setShowSupported;
-    const showSupported = props.showSupported;
 
     function handleType(event) {
         console.log(event.target.value);
@@ -54,7 +52,7 @@ function Header(props) {
                     </select>
                 </div>
                 <div className='welcome'>
-                    <p>Sponsor an animal!</p>
+                    <h1>Sponsor a dog!</h1>
                 </div>
 
                 {showSupported ? (

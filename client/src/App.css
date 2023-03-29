@@ -1,38 +1,88 @@
+/* html {
+  background-image: url(https://img.freepik.com/premium-vector/seamless-pattern-dog-paws-hand-lettering-vector-illustration_521637-33.jpg?w=2000);
+} */
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sticky {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  
+  font-size: 30px;
+  background-color: #29191a;
+  color: #eeba30;
+}
+
+select {
+  height: 35px;
+  background-color: #eeba30;
+  border-radius: 5px;
+  margin-left: 4px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.description, .success {
+  background-color: #eeba30;
+  padding: 50px;
+}
+
+.successImg {
+  border-radius: 50%;
+}
+
+p {
+  text-align: justify;
+}
+
+.main {
+  margin-top: 150px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+}
+
+.card {
   color: white;
+  text-align: center;
+  width: 250px;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #29191ae6;
 }
 
-.App-link {
-  color: #61dafb;
+img {
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button, .submitBtn {
+  padding: 3px;
+  margin: 3px;
+  background-color: #eeba30;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover, select:hover, .submitBtn:hover {
+  background-color: #4e3c0b;
+}
+
+.supportedBtn {
+  height: 35px;  
 }

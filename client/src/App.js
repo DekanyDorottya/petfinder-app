@@ -42,7 +42,6 @@ function App() {
             .then((res) => res.json())
             .then((data) => {
                 token = data.access_token;
-                console.log(data.access_token);
             })
             .then(() => {
                 // use token to fetch animals
