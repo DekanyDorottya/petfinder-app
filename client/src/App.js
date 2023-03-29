@@ -2,6 +2,8 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Animal from './components/Animal';
 import Header from './components/Header';
+import Description from './components/Description';
+import SuccessStory from './components/SuccessStory';
 
 function App() {
     const [allTheAnimals, setAllTheAnimals] = useState([]);
@@ -9,20 +11,17 @@ function App() {
     const [showSupported, setShowSupported] = useState(false);
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
 
-    let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
-    let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
+    const key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
+    const secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
 
-    /*  useEffect(() => {
-        setAllTheAnimals(animalsTest);
-    }); */
-
     useEffect(() => {
-        fetch('http://localhost:5000/api/animal')
-            .then((promise) => promise.json())
-            .then((animals) => {
-                setMySupportedAnimals(animals);
-            });
+        const fetchData = async () => {
+            const data = await fetch('http://localhost:5000/api/animal');
+            const json = await data.json();
+            setMySupportedAnimals(json);
+        };
+        fetchData().catch(console.error);
     }, [mySupportedAnimals]);
 
     useEffect(() => {
@@ -71,6 +70,8 @@ function App() {
             />
 
             <div className='main'>
+                {!showSupported && <Description />}
+
                 {!filteredAnimals &&
                     !showSupported &&
                     allTheAnimals.map((animal, index) => (
@@ -94,6 +95,8 @@ function App() {
                             showSupported={showSupported}
                         />
                     ))}
+
+                {!showSupported && <SuccessStory />}
 
                 {showSupported &&
                     mySupportedAnimals.map((animal, index) => (

@@ -36,7 +36,7 @@ function Header(props) {
         <div className='sticky'>
             <div className='header'>
                 <div className='search'>
-                    <select
+{/*                     <select
                         id='type'
                         name='type'
                         onChange={(event) => handleType(event)}
@@ -44,7 +44,7 @@ function Header(props) {
                         <option value=''>Choose a type...</option>
                         <option value='Dog'>Dog</option>
                         <option value='Cat'>Cat</option>
-                    </select>
+                    </select> */}
 
                     <select
                         id='gender'
@@ -57,7 +57,7 @@ function Header(props) {
                     </select>
                 </div>
                 <div className='welcome'>
-                    <p>Sponsor an animal!</p>
+                    <h1>Sponsor a dog!</h1>
                 </div>
 
                 {showSupported ? (
