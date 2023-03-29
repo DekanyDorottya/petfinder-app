@@ -46,19 +46,24 @@ app.get('/api/animal', (req, res) => {
 })
 
 
-app.patch('/api/todo/:id', async (req, res) => {
-    const { title, comment } = req.body;
-    const { id } = req.params;
-    try {
-      const todo = await Todo.findByIdAndUpdate(id, { title, comment }, { new: true });
-      if (!todo) {
-        return res.status(404).send({ message: 'Todo item not found' });
-      }
-      res.send(todo);
-    } catch (error) {
-      res.status(500).send({ message: error.message });
-    }
-  })
+app.patch('/support/update/:id',  async (req, res) => {
+
+    console.log(req.params.id);
+    console.log(req.body);
+
+    const donatedAmount = req.body;
+    const id = req.params;
+
+    /* try {
+        const animal = await Animal.findByIdAndUpdate(id, {donate: donatedAmount}, { new: true });
+        if (!animal) {
+          return res.status(404).send({ message: 'Animal item not found' });
+        }
+        res.send(animal);
+      } catch (error) {
+        res.status(500).send({ message: error.message });
+      } */
+})
   
 app.delete('/support/delete/:id', async (req, res) => {
 	const result = await Animal.findByIdAndDelete(req.params.id);

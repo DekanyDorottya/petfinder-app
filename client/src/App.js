@@ -9,25 +9,28 @@ function App() {
     const [filteredAnimals, setFilteredAnimals] = useState();
     const [showAnimal, setShowAnimal] = useState(true);
     const [showSupported, setShowSupported] = useState(false);
+    const [render, setRender] = useState(false);
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
 
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
 
-   /*  useEffect(() => {
+     useEffect(() => {
         setAllTheAnimals(animalsTest);
-    }); */
+    }); 
 
-    useEffect(() => {
+
+     useEffect(() => {
         fetch('http://localhost:5000/api/animal')
             .then((promise) => promise.json())
             .then((animals) => {
                 setMySupportedAnimals(animals);
             });
-    }, [mySupportedAnimals]);
+            setRender(false)
+    }, [render]);
      
-    useEffect(() => {
+    /*useEffect(() => {
         fetch('https://api.petfinder.com/v2/oauth2/token', {
             method: 'POST',
             body:
@@ -42,10 +45,9 @@ function App() {
             .then((res) => res.json())
             .then((data) => {
                 token = data.access_token;
-                console.log(data.access_token);
+                
             })
             .then(() => {
-                // use token to fetch animals
                 fetch(
                     `https://api.petfinder.com/v2/animals?type=dog&location=90210`,
                     {
@@ -61,16 +63,36 @@ function App() {
                     .then((data) => setAllTheAnimals(data.animals));
             })
             .catch((err) => console.error(err));
-    }, []);
+    }, []); */
 
 
 
 
     function handleSubmit(event) {
-        event.preventDefault()
-        console.log(event.target.value);
-        console.log('donate');
+        event.preventDefault();
+
+        const donateAmount = event.target[0].value;
+        const obj = {donateAmount}
+        console.log(obj);
+
+        const animalId = event.target.className;
+        console.log(animalId);
+
+        fetch(`http://localhost:5000/support/update/${animalId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(obj),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
     }
+
     return (
         <div className='App'>
             <Header
@@ -87,7 +109,8 @@ function App() {
                     <Animal animal={animal}
                     key={index}
                     mySupportedAnimals={mySupportedAnimals}
-                    setMySupportedAnimals={setMySupportedAnimals} />
+                    setMySupportedAnimals={setMySupportedAnimals}
+                    setRender={setRender} />
                 ))}
 
             {filteredAnimals &&
@@ -96,7 +119,8 @@ function App() {
                     <Animal animal={animal}
                     key={index}
                     mySupportedAnimals={mySupportedAnimals}
-                    setMySupportedAnimals={setMySupportedAnimals} />
+                    setMySupportedAnimals={setMySupportedAnimals} 
+                    setRender={setRender} />
                 ))}
 
             {showSupported &&
@@ -105,8 +129,9 @@ function App() {
                         <Animal animal={animal.details} 
                             key={index}
                             mySupportedAnimals={mySupportedAnimals}
-                            setMySupportedAnimals={setMySupportedAnimals} />
-                        <form onSubmit={(event) => handleSubmit(event)}>
+                            setMySupportedAnimals={setMySupportedAnimals}
+                            setRender={setRender} />
+                        <form className={animal._id} onSubmit={(event) => handleSubmit(event)}>
                             <label>
                                 <input type='text' />
                             </label>

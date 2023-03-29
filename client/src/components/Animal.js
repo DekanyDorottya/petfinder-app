@@ -4,6 +4,7 @@ export default function Animal({
     animal,
     mySupportedAnimals,
     setMySupportedAnimals,
+    setRender
 }) {
     function handleSupport(e) {
         e.preventDefault();
@@ -24,6 +25,7 @@ export default function Animal({
                 console.log(error);
             });
         console.log(data);
+        
     }
 
     function handleDelete(event) {
@@ -59,13 +61,14 @@ export default function Animal({
             <img
                 src={
                     animal.photos.length !== 0
-                        ? animal.photos[0].small
+                        ? animal.photos[0].medium
                         : 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg'
                 }
                 alt='dog'
                 width='150'
             />
-            <button onClick={handleSupport}>Support</button>
+            <button onClick={(e)=>{handleSupport(e); setRender(true)}} >Support</button>
+           
             <button onClick={(event) => handleDelete(event)}>Delete</button>
         </div>
     );
