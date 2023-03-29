@@ -4,6 +4,7 @@ import Animal from './components/Animal';
 import Header from './components/Header';
 import Description from './components/Description';
 import SuccessStory from './components/SuccessStory';
+import StorySlider from './components/StorySlider'
 
 //import animalsTest from './animalsTest';
 
@@ -18,6 +19,20 @@ function App() {
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
+    
+    const slides = [
+        { url: "https://i.insider.com/5acbb7fefacba818008b4578?width=1000&format=jpeg&auto=webp", title: "beach" },
+        { url: "https://i.insider.com/5c3cb1ca01c0ea10483086e6?width=1000&format=jpeg&auto=webp", title: "boat" },
+        { url: "https://twistedsifter.com/wp-content/uploads/2014/12/two-dogs-adoption-happiness-then-and-now-sad-happy.jpg", title: "forest" },
+        { url: "https://www.rd.com/wp-content/uploads/2018/04/Sherlock-Courtesy-Richard-McSweeney.jpg", title: "city" },
+        { url: "https://images.hellomagazine.com/imagenes/healthandbeauty/mother-and-baby/20211022124602/dog-adoption-stories-sylvie-rescue/0-601-514/dogs-trust-adoption-story-sylvie-t.jpg", title: "italy" },
+      ];
+      const containerStyles = {
+        width: "500px",
+        height: "280px",
+        margin: "0 auto",
+      };
+
 
     /*      useEffect(() => {
         setAllTheAnimals(animalsTest);
@@ -164,6 +179,9 @@ function App() {
             {!filteredAnimals &&
                 !showSupported &&
                 <SuccessStory />}
+                <div style={containerStyles}>
+        <StorySlider slides={slides} />
+      </div>
         </div>
     );
 }
