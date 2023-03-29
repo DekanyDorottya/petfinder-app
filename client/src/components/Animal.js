@@ -83,6 +83,7 @@ export default function Animal({
 
 
     return (
+        <div /* className='card' */>
         <div className={animal.name}>
             <div>{animal.name}</div>
             <div>{animal.type}</div>
@@ -98,9 +99,11 @@ export default function Animal({
                 alt='dog'
                 width='150'
             />
+            <br></br>
             <button onClick={(e)=>{handleSupport(e); setRender(true)}} >Support</button>
-           
             <button onClick={(event) => handleDelete(event)}>Delete</button>
+        </div>
+
         </div>
     );
 }
