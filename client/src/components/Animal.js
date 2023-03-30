@@ -11,6 +11,7 @@ export default function Animal({
     setMySupportedAnimals,
     setRender,
     showSupported,
+    index,
 }) {
     function handleSupport(e) {
         e.preventDefault();
@@ -50,7 +51,7 @@ export default function Animal({
 
         mySupportedAnimals.forEach(async function (supportedAnimal) {
             if (animal.name === supportedAnimal.details.name) {
-                console.log(supportedAnimal._id); //delete this one
+                console.log(supportedAnimal._id); 
 
                 const data = await fetch(
                     'http://localhost:5000/support/delete/' +
@@ -100,14 +101,14 @@ export default function Animal({
         'https://www.thesprucepets.com/thmb/qTKqY8BStGBtyMM34ZRMIQdRfVQ=/750x0/filters:no_upscale():strip_icc()/Daisy-d1308a01583d457990a2f1de5d0962f0.jpg',
     ];
 
-    const notify = () => {
+    const notify = (name) => {
         if (
             mySupportedAnimals.some(
                 (mySupportedAnimal) =>
                     mySupportedAnimal.details.name === animal.name
             )
         ) {
-            toast('Already added', {
+            toast(`Already added ${name}`, {
                 position: 'bottom-right',
                 autoClose: 5000,
                 hideProgressBar: true,
@@ -119,7 +120,7 @@ export default function Animal({
             });
         } else {
             const data = { details: animal, donate: 0 };
-            toast('Added to Your supported list!', {
+            toast(`You are now supporting ${name}`, {
                 position: 'bottom-right',
                 autoClose: 5000,
                 hideProgressBar: true,
@@ -154,7 +155,6 @@ export default function Animal({
     return (
         <div /* className='card' */>
             <div className={animal.name}>
-                
                 <img
                     src={
                         animal.photos.length !== 0
@@ -170,7 +170,7 @@ export default function Animal({
                     onClick={(e) => {
                         handleSupport(e);
                         setRender(true);
-                        notify();
+                        notify(animal.name);
                     }}
                 >
                     <span className='material-symbols-outlined'>
