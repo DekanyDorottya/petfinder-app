@@ -19,6 +19,8 @@ function App() {
     const [showSupported, setShowSupported] = useState(false);
     const [render, setRender] = useState(false);
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
+    const [donatedAmount, setdonatedAmount] = useState(null);
+
 
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
@@ -78,6 +80,8 @@ function App() {
         const donateAmount = event.target[0].value;
         const obj = { donateAmount };
         console.log(obj);
+       
+        console.log(donateAmount);
 
         const animalId = event.target.className;
         console.log(animalId);
@@ -94,6 +98,7 @@ function App() {
             .catch((error) => {
                 console.log(error);
             });
+            setdonatedAmount(obj)
     }
 
     return (
