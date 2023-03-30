@@ -7,6 +7,9 @@ import SuccessStory from './components/SuccessStory';
 import StorySlider from './components/StorySlider';
 import animalsTest from './animalsTest';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 //import animalsTest from './animalsTest';
 
 function App() {
@@ -147,7 +150,18 @@ function App() {
                             />
                             <form
                                 className={animal._id}
-                                onSubmit={(event) => handleSubmit(event)}
+                                onSubmit={(event) => {handleSubmit(event);  
+                                    toast(`${animal.details.name} appreciates it!`, {
+                                        position: 'bottom-right',
+                                        autoClose: 5000,
+                                        hideProgressBar: true,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: 'light',
+                                    })
+                                }}
                             >
                                 <label>
                                     <input className='donateInput' type='text' />
