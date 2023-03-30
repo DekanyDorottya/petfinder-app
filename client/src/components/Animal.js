@@ -90,7 +90,19 @@ export default function Animal({
     'https://www.thesprucepets.com/thmb/qTKqY8BStGBtyMM34ZRMIQdRfVQ=/750x0/filters:no_upscale():strip_icc()/Daisy-d1308a01583d457990a2f1de5d0962f0.jpg',
   ];
 
-  const notify = () => toast('Added to Your supported list!', {
+  const notify = () => {if (mySupportedAnimals.some((mySupportedAnimal) => mySupportedAnimal.details.name === animal.name)) {
+    ;toast('Already added', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    })
+  } else  {
+    const data = { details: animal, donate: 0 };toast('Added to Your supported list!', {
     position: "bottom-right",
     autoClose: 5000,
     hideProgressBar: true,
@@ -99,7 +111,7 @@ export default function Animal({
     draggable: true,
     progress: undefined,
     theme: "light",
-  });
+  })}};
 
 
   function generatePhoto() {
