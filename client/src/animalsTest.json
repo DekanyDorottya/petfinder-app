@@ -1,105 +1,7 @@
 [
     
     
-    {
-        "id": 61809982,
-        "organization_id": "BC295",
-        "url": "https://www.petfinder.com/dog/beth-61809982/bc/burnaby/danielles-huskys-to-the-rescue-bc295/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
-        "type": "Dog",
-        "species": "Dog",
-        "breeds": {
-            "primary": "Siberian Husky",
-            "secondary": "German Shepherd Dog",
-            "mixed": true,
-            "unknown": false
-        },
-        "colors": {
-            "primary": null,
-            "secondary": null,
-            "tertiary": null
-        },
-        "age": "Baby",
-        "gender": "Female",
-        "size": "Large",
-        "coat": null,
-        "attributes": {
-            "spayed_neutered": false,
-            "house_trained": true,
-            "declawed": null,
-            "special_needs": false,
-            "shots_current": true
-        },
-        "environment": {
-            "children": true,
-            "dogs": true,
-            "cats": true
-        },
-        "tags": [
-            "Friendly",
-            "Gentle",
-            "Playful",
-            "Curious",
-            "Funny",
-            "Quiet"
-        ],
-        "name": "Beth ",
-        "description": "Meet 5.5 month old Beth female \nHouse broken crate trained \nVery friendly",
-        "organization_animal_id": null,
-        "photos": [
-            {
-                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=100",
-                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=300",
-                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=600",
-                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674"
-            },
-            {
-                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675&width=100",
-                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675&width=300",
-                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675&width=600",
-                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675"
-            },
-            {
-                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675&width=100",
-                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675&width=300",
-                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675&width=600",
-                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675"
-            }
-        ],
-        "primary_photo_cropped": {
-            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=300",
-            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=450",
-            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=600",
-            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674"
-        },
-        "videos": [],
-        "status": "adoptable",
-        "status_changed_at": "2023-03-29T17:41:17+0000",
-        "published_at": "2023-03-29T17:41:16+0000",
-        "distance": null,
-        "contact": {
-            "email": "danielleshuskys@hotmail.com",
-            "phone": "(778) 835-8528",
-            "address": {
-                "address1": null,
-                "address2": null,
-                "city": "Burnaby",
-                "state": "BC",
-                "postcode": "V5B 4G5",
-                "country": "CA"
-            }
-        },
-        "_links": {
-            "self": {
-                "href": "/v2/animals/61809982"
-            },
-            "type": {
-                "href": "/v2/types/dog"
-            },
-            "organization": {
-                "href": "/v2/organizations/bc295"
-            }
-        }
-    },
+    
     {
         "id": 61809981,
         "organization_id": "OH1293",
@@ -1077,6 +979,105 @@
         }
     },
     {
+        "id": 61809982,
+        "organization_id": "BC295",
+        "url": "https://www.petfinder.com/dog/beth-61809982/bc/burnaby/danielles-huskys-to-the-rescue-bc295/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
+        "type": "Dog",
+        "species": "Dog",
+        "breeds": {
+            "primary": "Siberian Husky",
+            "secondary": "German Shepherd Dog",
+            "mixed": true,
+            "unknown": false
+        },
+        "colors": {
+            "primary": null,
+            "secondary": null,
+            "tertiary": null
+        },
+        "age": "Baby",
+        "gender": "Female",
+        "size": "Large",
+        "coat": null,
+        "attributes": {
+            "spayed_neutered": false,
+            "house_trained": true,
+            "declawed": null,
+            "special_needs": false,
+            "shots_current": true
+        },
+        "environment": {
+            "children": true,
+            "dogs": true,
+            "cats": true
+        },
+        "tags": [
+            "Friendly",
+            "Gentle",
+            "Playful",
+            "Curious",
+            "Funny",
+            "Quiet"
+        ],
+        "name": "Beth ",
+        "description": "Meet 5.5 month old Beth female \nHouse broken crate trained \nVery friendly",
+        "organization_animal_id": null,
+        "photos": [
+            {
+                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=100",
+                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=300",
+                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=600",
+                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674"
+            },
+            {
+                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675&width=100",
+                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675&width=300",
+                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675&width=600",
+                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/2/?bust=1680111675"
+            },
+            {
+                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675&width=100",
+                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675&width=300",
+                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675&width=600",
+                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/3/?bust=1680111675"
+            }
+        ],
+        "primary_photo_cropped": {
+            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=300",
+            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=450",
+            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674&width=600",
+            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809982/1/?bust=1680111674"
+        },
+        "videos": [],
+        "status": "adoptable",
+        "status_changed_at": "2023-03-29T17:41:17+0000",
+        "published_at": "2023-03-29T17:41:16+0000",
+        "distance": null,
+        "contact": {
+            "email": "danielleshuskys@hotmail.com",
+            "phone": "(778) 835-8528",
+            "address": {
+                "address1": null,
+                "address2": null,
+                "city": "Burnaby",
+                "state": "BC",
+                "postcode": "V5B 4G5",
+                "country": "CA"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "/v2/animals/61809982"
+            },
+            "type": {
+                "href": "/v2/types/dog"
+            },
+            "organization": {
+                "href": "/v2/organizations/bc295"
+            }
+        }
+    },
+    {
         "id": 61809919,
         "organization_id": "TX2339",
         "url": "https://www.petfinder.com/dog/thor-61809919/tx/austin/new-hope-animal-rescue-nfp-tx2339/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
@@ -1415,7 +1416,7 @@
             "Funny",
             "Loves kisses"
         ],
-        "name": "LAB MIX PUPPY (Yellow Female)",
+        "name": "LAB MIX PUPPY",
         "description": "INCOMING!  This little 5 month old lab mix is about 20 pounds of puppy loving!\nShe gets along with other...",
         "organization_animal_id": null,
         "photos": [
@@ -2029,6 +2030,267 @@
             },
             "organization": {
                 "href": "/v2/organizations/oh1293"
+            }
+        }
+    },
+    {
+        "id": 61809983,
+        "organization_id": "NJ507",
+        "url": "https://www.petfinder.com/dog/zeus-61809983/nj/pittstown/lost-paws-animal-rescue-nj507/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
+        "type": "Dog",
+        "species": "Dog",
+        "breeds": {
+            "primary": "Black Mouth Cur",
+            "secondary": null,
+            "mixed": true,
+            "unknown": false
+        },
+        "colors": {
+            "primary": "Yellow / Tan / Blond / Fawn",
+            "secondary": null,
+            "tertiary": null
+        },
+        "age": "Baby",
+        "gender": "Male",
+        "size": "Medium",
+        "coat": "Short",
+        "attributes": {
+            "spayed_neutered": false,
+            "house_trained": false,
+            "declawed": null,
+            "special_needs": false,
+            "shots_current": true
+        },
+        "environment": {
+            "children": true,
+            "dogs": true,
+            "cats": null
+        },
+        "tags": [
+            "Friendly",
+            "Affectionate",
+            "Loyal",
+            "Playful",
+            "Smart",
+            "Curious"
+        ],
+        "name": "Zeus",
+        "description": "This is Zeus! Zeus is a 3 month old black mouth cur mix.\nLitter siblings are Sofia, Nancy, Patches.\n\nFill...",
+        "organization_animal_id": null,
+        "photos": [
+            {
+                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=100",
+                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=300",
+                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=600",
+                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675"
+            }
+        ],
+        "primary_photo_cropped": {
+            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=300",
+            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=450",
+            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=600",
+            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675"
+        },
+        "videos": [],
+        "status": "adoptable",
+        "status_changed_at": "2023-03-29T17:41:18+0000",
+        "published_at": "2023-03-29T17:41:17+0000",
+        "distance": null,
+        "contact": {
+            "email": "lostpawsrescue@embarqmail.com",
+            "phone": "(908) 331-1551",
+            "address": {
+                "address1": null,
+                "address2": null,
+                "city": "Pittstown",
+                "state": "NJ",
+                "postcode": "08867",
+                "country": "US"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "/v2/animals/61809983"
+            },
+            "type": {
+                "href": "/v2/types/dog"
+            },
+            "organization": {
+                "href": "/v2/organizations/nj507"
+            }
+        }
+    },
+    {
+        "id": 61809949,
+        "organization_id": "NJ507",
+        "url": "https://www.petfinder.com/dog/nancy-61809949/nj/pittstown/lost-paws-animal-rescue-nj507/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
+        "type": "Dog",
+        "species": "Dog",
+        "breeds": {
+            "primary": "Black Mouth Cur",
+            "secondary": null,
+            "mixed": true,
+            "unknown": false
+        },
+        "colors": {
+            "primary": "Yellow / Tan / Blond / Fawn",
+            "secondary": "Black",
+            "tertiary": "Bicolor"
+        },
+        "age": "Baby",
+        "gender": "Female",
+        "size": "Medium",
+        "coat": "Short",
+        "attributes": {
+            "spayed_neutered": false,
+            "house_trained": false,
+            "declawed": null,
+            "special_needs": false,
+            "shots_current": true
+        },
+        "environment": {
+            "children": true,
+            "dogs": true,
+            "cats": null
+        },
+        "tags": [
+            "Friendly",
+            "Affectionate",
+            "Loyal",
+            "Playful",
+            "Smart",
+            "Curious"
+        ],
+        "name": "Nancy",
+        "description": "This is Patches! Patches is a 3 month old black mouth cur mix.\nLitter siblings are Sofia, Nancy, Zeus.\n\nFill...",
+        "organization_animal_id": null,
+        "photos": [
+            {
+                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=100",
+                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=300",
+                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=600",
+                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553"
+            }
+        ],
+        "primary_photo_cropped": {
+            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=300",
+            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=450",
+            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=600",
+            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553"
+        },
+        "videos": [],
+        "status": "adoptable",
+        "status_changed_at": "2023-03-29T17:39:16+0000",
+        "published_at": "2023-03-29T17:39:15+0000",
+        "distance": null,
+        "contact": {
+            "email": "lostpawsrescue@embarqmail.com",
+            "phone": "(908) 331-1551",
+            "address": {
+                "address1": null,
+                "address2": null,
+                "city": "Pittstown",
+                "state": "NJ",
+                "postcode": "08867",
+                "country": "US"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "/v2/animals/61809949"
+            },
+            "type": {
+                "href": "/v2/types/dog"
+            },
+            "organization": {
+                "href": "/v2/organizations/nj507"
+            }
+        }
+    },
+    {
+        "id": 61809945,
+        "organization_id": "NJ507",
+        "url": "https://www.petfinder.com/dog/sofia-61809945/nj/pittstown/lost-paws-animal-rescue-nj507/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
+        "type": "Dog",
+        "species": "Dog",
+        "breeds": {
+            "primary": "Black Mouth Cur",
+            "secondary": null,
+            "mixed": true,
+            "unknown": false
+        },
+        "colors": {
+            "primary": "Yellow / Tan / Blond / Fawn",
+            "secondary": "Black",
+            "tertiary": "Bicolor"
+        },
+        "age": "Baby",
+        "gender": "Female",
+        "size": "Medium",
+        "coat": "Short",
+        "attributes": {
+            "spayed_neutered": false,
+            "house_trained": false,
+            "declawed": null,
+            "special_needs": false,
+            "shots_current": true
+        },
+        "environment": {
+            "children": true,
+            "dogs": true,
+            "cats": null
+        },
+        "tags": [
+            "Friendly",
+            "Affectionate",
+            "Loyal",
+            "Playful",
+            "Smart",
+            "Curious"
+        ],
+        "name": "Sofia",
+        "description": "This is Patches! Patches is a 3 month old black mouth cur mix.\nLitter siblings are Sofia, Nancy, Zeus.\n\nFill...",
+        "organization_animal_id": null,
+        "photos": [
+            {
+                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=100",
+                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=300",
+                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=600",
+                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503"
+            }
+        ],
+        "primary_photo_cropped": {
+            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=300",
+            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=450",
+            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=600",
+            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503"
+        },
+        "videos": [],
+        "status": "adoptable",
+        "status_changed_at": "2023-03-29T17:38:26+0000",
+        "published_at": "2023-03-29T17:38:25+0000",
+        "distance": null,
+        "contact": {
+            "email": "lostpawsrescue@embarqmail.com",
+            "phone": "(908) 331-1551",
+            "address": {
+                "address1": null,
+                "address2": null,
+                "city": "Pittstown",
+                "state": "NJ",
+                "postcode": "08867",
+                "country": "US"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "/v2/animals/61809945"
+            },
+            "type": {
+                "href": "/v2/types/dog"
+            },
+            "organization": {
+                "href": "/v2/organizations/nj507"
             }
         }
     },
@@ -3425,266 +3687,6 @@
             },
             "organization": {
                 "href": "/v2/organizations/ny1521"
-            }
-        }
-    },{
-        "id": 61809983,
-        "organization_id": "NJ507",
-        "url": "https://www.petfinder.com/dog/zeus-61809983/nj/pittstown/lost-paws-animal-rescue-nj507/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
-        "type": "Dog",
-        "species": "Dog",
-        "breeds": {
-            "primary": "Black Mouth Cur",
-            "secondary": null,
-            "mixed": true,
-            "unknown": false
-        },
-        "colors": {
-            "primary": "Yellow / Tan / Blond / Fawn",
-            "secondary": null,
-            "tertiary": null
-        },
-        "age": "Baby",
-        "gender": "Male",
-        "size": "Medium",
-        "coat": "Short",
-        "attributes": {
-            "spayed_neutered": false,
-            "house_trained": false,
-            "declawed": null,
-            "special_needs": false,
-            "shots_current": true
-        },
-        "environment": {
-            "children": true,
-            "dogs": true,
-            "cats": null
-        },
-        "tags": [
-            "Friendly",
-            "Affectionate",
-            "Loyal",
-            "Playful",
-            "Smart",
-            "Curious"
-        ],
-        "name": "Zeus",
-        "description": "This is Zeus! Zeus is a 3 month old black mouth cur mix.\nLitter siblings are Sofia, Nancy, Patches.\n\nFill...",
-        "organization_animal_id": null,
-        "photos": [
-            {
-                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=100",
-                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=300",
-                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=600",
-                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675"
-            }
-        ],
-        "primary_photo_cropped": {
-            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=300",
-            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=450",
-            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675&width=600",
-            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809983/1/?bust=1680111675"
-        },
-        "videos": [],
-        "status": "adoptable",
-        "status_changed_at": "2023-03-29T17:41:18+0000",
-        "published_at": "2023-03-29T17:41:17+0000",
-        "distance": null,
-        "contact": {
-            "email": "lostpawsrescue@embarqmail.com",
-            "phone": "(908) 331-1551",
-            "address": {
-                "address1": null,
-                "address2": null,
-                "city": "Pittstown",
-                "state": "NJ",
-                "postcode": "08867",
-                "country": "US"
-            }
-        },
-        "_links": {
-            "self": {
-                "href": "/v2/animals/61809983"
-            },
-            "type": {
-                "href": "/v2/types/dog"
-            },
-            "organization": {
-                "href": "/v2/organizations/nj507"
-            }
-        }
-    },
-    {
-        "id": 61809949,
-        "organization_id": "NJ507",
-        "url": "https://www.petfinder.com/dog/nancy-61809949/nj/pittstown/lost-paws-animal-rescue-nj507/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
-        "type": "Dog",
-        "species": "Dog",
-        "breeds": {
-            "primary": "Black Mouth Cur",
-            "secondary": null,
-            "mixed": true,
-            "unknown": false
-        },
-        "colors": {
-            "primary": "Yellow / Tan / Blond / Fawn",
-            "secondary": "Black",
-            "tertiary": "Bicolor"
-        },
-        "age": "Baby",
-        "gender": "Female",
-        "size": "Medium",
-        "coat": "Short",
-        "attributes": {
-            "spayed_neutered": false,
-            "house_trained": false,
-            "declawed": null,
-            "special_needs": false,
-            "shots_current": true
-        },
-        "environment": {
-            "children": true,
-            "dogs": true,
-            "cats": null
-        },
-        "tags": [
-            "Friendly",
-            "Affectionate",
-            "Loyal",
-            "Playful",
-            "Smart",
-            "Curious"
-        ],
-        "name": "Nancy",
-        "description": "This is Patches! Patches is a 3 month old black mouth cur mix.\nLitter siblings are Sofia, Nancy, Zeus.\n\nFill...",
-        "organization_animal_id": null,
-        "photos": [
-            {
-                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=100",
-                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=300",
-                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=600",
-                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553"
-            }
-        ],
-        "primary_photo_cropped": {
-            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=300",
-            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=450",
-            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553&width=600",
-            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809949/1/?bust=1680111553"
-        },
-        "videos": [],
-        "status": "adoptable",
-        "status_changed_at": "2023-03-29T17:39:16+0000",
-        "published_at": "2023-03-29T17:39:15+0000",
-        "distance": null,
-        "contact": {
-            "email": "lostpawsrescue@embarqmail.com",
-            "phone": "(908) 331-1551",
-            "address": {
-                "address1": null,
-                "address2": null,
-                "city": "Pittstown",
-                "state": "NJ",
-                "postcode": "08867",
-                "country": "US"
-            }
-        },
-        "_links": {
-            "self": {
-                "href": "/v2/animals/61809949"
-            },
-            "type": {
-                "href": "/v2/types/dog"
-            },
-            "organization": {
-                "href": "/v2/organizations/nj507"
-            }
-        }
-    },
-    {
-        "id": 61809945,
-        "organization_id": "NJ507",
-        "url": "https://www.petfinder.com/dog/sofia-61809945/nj/pittstown/lost-paws-animal-rescue-nj507/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
-        "type": "Dog",
-        "species": "Dog",
-        "breeds": {
-            "primary": "Black Mouth Cur",
-            "secondary": null,
-            "mixed": true,
-            "unknown": false
-        },
-        "colors": {
-            "primary": "Yellow / Tan / Blond / Fawn",
-            "secondary": "Black",
-            "tertiary": "Bicolor"
-        },
-        "age": "Baby",
-        "gender": "Female",
-        "size": "Medium",
-        "coat": "Short",
-        "attributes": {
-            "spayed_neutered": false,
-            "house_trained": false,
-            "declawed": null,
-            "special_needs": false,
-            "shots_current": true
-        },
-        "environment": {
-            "children": true,
-            "dogs": true,
-            "cats": null
-        },
-        "tags": [
-            "Friendly",
-            "Affectionate",
-            "Loyal",
-            "Playful",
-            "Smart",
-            "Curious"
-        ],
-        "name": "Sofia",
-        "description": "This is Patches! Patches is a 3 month old black mouth cur mix.\nLitter siblings are Sofia, Nancy, Zeus.\n\nFill...",
-        "organization_animal_id": null,
-        "photos": [
-            {
-                "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=100",
-                "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=300",
-                "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=600",
-                "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503"
-            }
-        ],
-        "primary_photo_cropped": {
-            "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=300",
-            "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=450",
-            "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503&width=600",
-            "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/61809945/1/?bust=1680111503"
-        },
-        "videos": [],
-        "status": "adoptable",
-        "status_changed_at": "2023-03-29T17:38:26+0000",
-        "published_at": "2023-03-29T17:38:25+0000",
-        "distance": null,
-        "contact": {
-            "email": "lostpawsrescue@embarqmail.com",
-            "phone": "(908) 331-1551",
-            "address": {
-                "address1": null,
-                "address2": null,
-                "city": "Pittstown",
-                "state": "NJ",
-                "postcode": "08867",
-                "country": "US"
-            }
-        },
-        "_links": {
-            "self": {
-                "href": "/v2/animals/61809945"
-            },
-            "type": {
-                "href": "/v2/types/dog"
-            },
-            "organization": {
-                "href": "/v2/organizations/nj507"
             }
         }
     }

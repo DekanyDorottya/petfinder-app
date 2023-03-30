@@ -132,6 +132,20 @@ export default function Animal({
         }
     };
 
+    const deleteNotify =(name)=>{
+        toast(`${name} is not in your list now!`, {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        })
+    }
+   
+
     function generatePhoto() {
         const randomIndex = Math.floor(Math.random() * 20);
         return dogPhotos[randomIndex];
@@ -151,6 +165,7 @@ export default function Animal({
                     alt='dog'
                     width='150'
                 />
+                { !showSupported && (
                 <button className='supportAddButton'
                     onClick={(e) => {
                         handleSupport(e);
@@ -161,13 +176,11 @@ export default function Animal({
                     <span className='material-symbols-outlined'>
                         heart_plus
                     </span>
-                </button>
+                </button>)}
                 <div className='animalname'>
                     {animal.name}
                     <br></br>
-                    {/*                     {!showSupported && 
-                        
-                    } */}
+                    
                 </div>
                 <div>{animal.gender}</div>
                 <div>{animal.contact.email}</div>
@@ -179,7 +192,7 @@ export default function Animal({
                 {showSupported && (
                     <button className='deleteButton'>
                         <span
-                            onClick={(event) => handleDelete(event)}
+                            onClick={(event) => {handleDelete(event);deleteNotify(animal.name)}}
                             className='material-symbols-outlined'
                         >
                             heart_minus
