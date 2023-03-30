@@ -46,12 +46,11 @@ export default function Animal({
         console.log('this needs to be deleted');
         console.log(event.target.parentElement.className);
 
-        mySupportedAnimals.forEach(async function (supportedAnimal) {
-            console.log(supportedAnimal.details.name);
-            if (
-                supportedAnimal.details.name ===
-                event.target.parentElement.className
-            ) {
+
+        mySupportedAnimals.forEach(async function (supportedAnimal){
+            if (animal.name === supportedAnimal.details.name) {
+                console.log(supportedAnimal._id); //delete this one
+
                 const data = await fetch(
                     'http://localhost:5000/support/delete/' +
                         supportedAnimal._id,
@@ -63,8 +62,19 @@ export default function Animal({
                             mySupportedAnimal._id !== data.result._id
                     )
                 );
+
             }
-        });
+        })
+/* 
+        mySupportedAnimals.forEach(async function (supportedAnimal) {
+            console.log(supportedAnimal.details.name);
+            if (
+                supportedAnimal.details.name ===
+                event.target.parentElement.className
+            ) {
+                
+            }
+        }); */
     }
 
     const dogPhotos = [
@@ -143,6 +153,9 @@ export default function Animal({
                 <div className='animalname'>
                     {animal.name}
                     <br></br>
+{/*                     {!showSupported && 
+                        
+                    } */}
                     <button
                         onClick={(e) => {
                             handleSupport(e);
@@ -150,6 +163,8 @@ export default function Animal({
                             notify();
                         }}
                     >
+
+
                         <span className='material-symbols-outlined'>
                             heart_plus
                         </span>
@@ -163,10 +178,13 @@ export default function Animal({
 
                 <ToastContainer />
                 {showSupported && (
-                    <button onClick={(event) => handleDelete(event)}>
-                        <span className='material-symbols-outlined'>
+                    <button >
+                        
+                        <span onClick={(event) => handleDelete(event)} className='material-symbols-outlined'>
                             heart_minus
                         </span>
+                        
+                        {/* Remove */}
                     </button>
                 )}
             </div>
