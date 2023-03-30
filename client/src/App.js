@@ -4,7 +4,8 @@ import Animal from './components/Animal';
 import Header from './components/Header';
 import Description from './components/Description';
 import SuccessStory from './components/SuccessStory';
-import StorySlider from './components/StorySlider'
+import StorySlider from './components/StorySlider';
+import animalsTest from './animalsTest';
 
 //import animalsTest from './animalsTest';
 
@@ -19,24 +20,10 @@ function App() {
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
     let token;
-    
-    const slides = [
-        { url: "https://i.insider.com/5acbb7fefacba818008b4578?width=1000&format=jpeg&auto=webp", title: "beach" },
-        { url: "https://i.insider.com/5c3cb1ca01c0ea10483086e6?width=1000&format=jpeg&auto=webp", title: "boat" },
-        { url: "https://twistedsifter.com/wp-content/uploads/2014/12/two-dogs-adoption-happiness-then-and-now-sad-happy.jpg", title: "forest" },
-        { url: "https://www.rd.com/wp-content/uploads/2018/04/Sherlock-Courtesy-Richard-McSweeney.jpg", title: "city" },
-        { url: "https://images.hellomagazine.com/imagenes/healthandbeauty/mother-and-baby/20211022124602/dog-adoption-stories-sylvie-rescue/0-601-514/dogs-trust-adoption-story-sylvie-t.jpg", title: "italy" },
-      ];
-      const containerStyles = {
-        width: "500px",
-        height: "280px",
-        margin: "0 auto",
-      };
 
-
-    /*      useEffect(() => {
+    useEffect(() => {
         setAllTheAnimals(animalsTest);
-    });  */
+    });
 
     useEffect(() => {
         fetch('http://localhost:5000/api/animal')
@@ -47,7 +34,7 @@ function App() {
         setRender(false);
     }, [render]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         fetch('https://api.petfinder.com/v2/oauth2/token', {
             method: 'POST',
             body:
@@ -65,7 +52,7 @@ function App() {
             })
             .then(() => {
                 fetch(
-                    `https://api.petfinder.com/v2/animals?type=dog&location=90210`,
+                    `https://api.petfinder.com/v2/animals?type=dog&limit=100`,
                     {
                         method: 'GET',
                         mode: 'cors',
@@ -76,10 +63,11 @@ function App() {
                     }
                 )
                     .then((res) => res.json())
-                    .then((data) => setAllTheAnimals(data.animals));
+                    .then((data) => setAllTheAnimals(data.animals) );
             })
             .catch((err) => console.error(err));
-    }, []);
+            console.log(allTheAnimals);
+    }, []); */
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -115,73 +103,67 @@ function App() {
                 allTheAnimals={allTheAnimals}
             />
 
-            
-
             <div className='main'>
+                {!filteredAnimals && !showSupported && <Description />}
 
-            {!filteredAnimals && !showSupported && <Description />}
+                {!filteredAnimals &&
+                    !showSupported &&
+                    allTheAnimals.map((animal, index) => (
+                        <div className='card'>
+                            <Animal
+                                animal={animal}
+                                key={index}
+                                mySupportedAnimals={mySupportedAnimals}
+                                setMySupportedAnimals={setMySupportedAnimals}
+                                setRender={setRender}
+                            />
+                        </div>
+                    ))}
 
-            {!filteredAnimals &&
-                !showSupported &&
-                allTheAnimals.map((animal, index) => (
-                    <div className='card'>
+                {filteredAnimals &&
+                    !showSupported &&
+                    filteredAnimals.map((animal, index) => (
+                        <div className='card'>
+                            <Animal
+                                animal={animal}
+                                key={index}
+                                mySupportedAnimals={mySupportedAnimals}
+                                setMySupportedAnimals={setMySupportedAnimals}
+                                setRender={setRender}
+                            />
+                        </div>
+                    ))}
 
-                        <Animal
-                            animal={animal}
-                            key={index}
-                            mySupportedAnimals={mySupportedAnimals}
-                            setMySupportedAnimals={setMySupportedAnimals}
-                            setRender={setRender}
-                        />
-                    </div>
-                ))}
-
-            {filteredAnimals &&
-                !showSupported &&
-                filteredAnimals.map((animal, index) => (
-                    <div className='card'>
-
-                        <Animal
-                            animal={animal}
-                            key={index}
-                            mySupportedAnimals={mySupportedAnimals}
-                            setMySupportedAnimals={setMySupportedAnimals}
-                            setRender={setRender}
-                        />
-                    </div>
-                ))}
-
-            {showSupported &&
-                mySupportedAnimals.map((animal, index) => (
-                    <div className='card'>
-                        <Animal
-                            animal={animal.details}
-                            key={index}
-                            mySupportedAnimals={mySupportedAnimals}
-                            setMySupportedAnimals={setMySupportedAnimals}
-                            setRender={setRender}
-                        />
-                        <form
-                            className={animal._id}
-                            onSubmit={(event) => handleSubmit(event)}
-                        >
-                            <label>
-                                <input type='text' />
-                            </label>
-                            <br></br>
-                            <input type='submit' value='Donate' className='submitBtn'/>
-                        </form>
-                    </div>
-                ))}
-
+                {showSupported &&
+                    mySupportedAnimals.map((animal, index) => (
+                        <div className='card'>
+                            <Animal
+                                animal={animal.details}
+                                key={index}
+                                mySupportedAnimals={mySupportedAnimals}
+                                setMySupportedAnimals={setMySupportedAnimals}
+                                setRender={setRender}
+                                showSupported={showSupported}
+                            />
+                            <form
+                                className={animal._id}
+                                onSubmit={(event) => handleSubmit(event)}
+                            >
+                                <label>
+                                    <input type='text' />
+                                </label>
+                                <br></br>
+                                <input
+                                    type='submit'
+                                    value='Donate'
+                                    className='submitBtn'
+                                />
+                            </form>
+                        </div>
+                    ))}
             </div>
 
-            {!filteredAnimals &&
-                !showSupported &&
-                <SuccessStory />}
-                <div style={containerStyles}>
-        <StorySlider slides={slides} />
-      </div>
+            {!filteredAnimals && !showSupported && <SuccessStory />}
         </div>
     );
 }

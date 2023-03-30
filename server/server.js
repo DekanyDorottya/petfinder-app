@@ -19,7 +19,8 @@ app.use(
 );
 app.use(bodyParser.json());
  mongoose.connect(
-    "mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
+    //"mongodb+srv://fbalozs60:XeAEUfRPoNCH9qRQ@cluster0.40aoczy.mongodb.net/test?retryWrites=true&w=majority"
+    "mongodb+srv://dekanydorottya95:xViCPlCEa7hqllgd@cluster0.zdewgmz.mongodb.net/test?retryWrites=true&w=majority"
 ); 
 
 

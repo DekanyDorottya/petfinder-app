@@ -1,7 +1,12 @@
 function Description() {
     return (
         <div className='description'>
-            <h2>How your sponsorship helps</h2>
+            <h2 className="description_title">How your sponsorship helps{/* <img
+                alt='Butterball'
+                src='https://bestfriends.org/sites/default/files/styles/story_desktop_1920x1230_/public/story_images/Adopt_BFAS-Adoption-2_Yogi-3_Long-Beach--animal-services.jpg?h=05ee7ac3&itok=7tDhtq1I'
+                
+                className='successImg'
+            ></img> */}</h2>
             <p>
                 Your sponsorship directly helps your cosen sponsor dog, and all
                 the dogs in our care too. Your sponsorship money is used to

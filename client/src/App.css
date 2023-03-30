@@ -1,8 +1,11 @@
 /* html {
   background-image: url(https://img.freepik.com/premium-vector/seamless-pattern-dog-paws-hand-lettering-vector-illustration_521637-33.jpg?w=2000);
 } */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,900&family=Quicksand&display=swap');
 
 .App {
+  font-family: 'Anton', sans-serif;
   text-align: center;
 }
 
@@ -41,7 +44,10 @@ select {
 }
 
 .successImg {
-  border-radius: 50%;
+  border-radius: 5px;
+  transform: scale(1);
+  float:right
+  
 }
 
 p {
@@ -49,39 +55,56 @@ p {
 }
 
 .main {
-  margin-top: 100px;
+  margin-top: 70px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .card {
+  object-fit: cover;
   color: white;
   text-align: center;
-  width: 250px;
+  /* width: 250px; */
   margin: 20px;
-  padding: 10px;
+  padding: 0px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #29191ae6;
 }
-
-img {
-  border-radius: 10px;
-  height: 180px;
+.card img {
+    width:  auto;
+    height: 300px;
+  border-radius: 5px;
 }
 
+.animalname{
+  font-family: 'Quicksand', sans-serif;
+}
 button, .submitBtn {
-  padding: 3px;
-  margin: 3px;
-  background-color: #eeba30;
-  border: none;
-  border-radius: 5px;
+  
+ float: right;
+  display: inline-block;
+  outline: 0;
   cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #eeba30;
+  color: #fff;
+  background-color: #eeba30;
+  padding: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  font-weight: 800;
+  font-size: 16px;
+  height: 42px;
+ 
+  
+
 }
 
 button:hover, select:hover, .submitBtn:hover {
-  background-color: #4e3c0b;
+  background: 0 0;
+      color: #eeba30;
+  
 }
 
 .card:hover {
@@ -91,3 +114,5 @@ button:hover, select:hover, .submitBtn:hover {
 .supportedBtn {
   height: 35px;  
 }
+
+
