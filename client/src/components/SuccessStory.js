@@ -30,11 +30,12 @@ function SuccessStory() {
     };
     return (
         <div className='success'>
-            <h2>Success Story</h2>
+            <h2>Successful Adoptions</h2>
+            <div className='successDescription'></div>
             <div style={containerStyles}>
+                
                 <StorySlider slides={slides} />
             </div>
-
         </div>
     );
 }
