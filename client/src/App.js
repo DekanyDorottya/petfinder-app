@@ -150,7 +150,7 @@ function App() {
                                 onSubmit={(event) => handleSubmit(event)}
                             >
                                 <label>
-                                    <input type='text' />
+                                    <input className='donateInput' type='text' />
                                 </label>
                                 <br></br>
                                 <input
