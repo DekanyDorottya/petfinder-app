@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Animal({
     animal,
@@ -79,17 +79,17 @@ export default function Animal({
         'https://www.thesprucepets.com/thmb/qTKqY8BStGBtyMM34ZRMIQdRfVQ=/750x0/filters:no_upscale():strip_icc()/Daisy-d1308a01583d457990a2f1de5d0962f0.jpg',
     ];
 
-    const notify = () => toast('Added to Your supported list!', {
-position: "bottom-right",
-autoClose: 5000,
-hideProgressBar: true,
-closeOnClick: true,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-});
-
+    const notify = () =>
+        toast('Added to Your supported list!', {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        });
 
     function generatePhoto() {
         const randomIndex = Math.floor(Math.random() * 20);
@@ -99,6 +99,20 @@ theme: "light",
     return (
         <div /* className='card' */>
             <div className={animal.name}>
+                <div>
+                    <button
+                        className='heart'
+                        onClick={(e) => {
+                            handleSupport(e);
+                            setRender(true);
+                            notify();
+                        }}
+                    >
+                        <span class='material-symbols-outlined'>
+                            heart_plus
+                        </span>
+                    </button>
+                </div>
                 <img
                     src={
                         animal.photos.length !== 0
@@ -110,25 +124,23 @@ theme: "light",
                     width='150'
                 />
                 <div className='animalname'>
-                    {animal.name}<button
-                    onClick={(e) => {
-                        handleSupport(e);
-                        setRender(true);
-                        notify()
-                    }}
-                    
-                >
-                    Support
-                </button>
+                    <div className='name'>{animal.name}</div>
                 </div>
                 <div>{animal.gender}</div>
                 <div>{animal.contact.email}</div>
                 <div>City: {animal.contact.address.city}</div>
 
                 <br></br>
-                
+
                 <ToastContainer />
-                {showSupported && <button onClick={(event) => handleDelete(event)}>Delete</button>}
+                {showSupported && (
+                    <button onClick={(event) => handleDelete(event)}>
+                        
+                        <span class='material-symbols-outlined'>
+                            heart_minus
+                        </span>
+                    </button>
+                )}
             </div>
         </div>
     );

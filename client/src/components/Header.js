@@ -69,7 +69,7 @@ function Header(props) {
                         className='supportedBtn'
                         onClick={handleShowSupportedAnimals}
                     >
-                        Show my supported animals
+                        <div>Supported animals</div>
                     </button>
                 )}
             </div>
