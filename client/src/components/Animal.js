@@ -12,23 +12,34 @@ export default function Animal({
 }) {
     function handleSupport(e) {
         e.preventDefault();
-        const data = { details: animal, donate: 0 };
+        console.log('animal', animal);
 
-        fetch('http://localhost:5000/api/animal', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response);
+        if (
+            mySupportedAnimals.some(
+                (mySupportedAnimal) =>
+                    mySupportedAnimal.details.name === animal.name
+            )
+        ) {
+            console.log('Already added');
+        } else {
+            const data = { details: animal, donate: 0 };
+
+            fetch('http://localhost:5000/api/animal', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
             })
-            .catch((error) => {
-                console.log(error);
-            });
-        console.log(data);
+                .then((response) => response.json())
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+            console.log(data);
+        }
     }
 
     function handleDelete(event) {
@@ -79,17 +90,37 @@ export default function Animal({
         'https://www.thesprucepets.com/thmb/qTKqY8BStGBtyMM34ZRMIQdRfVQ=/750x0/filters:no_upscale():strip_icc()/Daisy-d1308a01583d457990a2f1de5d0962f0.jpg',
     ];
 
-    const notify = () =>
-        toast('Added to Your supported list!', {
-            position: 'bottom-right',
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: 'light',
-        });
+    const notify = () => {
+        if (
+            mySupportedAnimals.some(
+                (mySupportedAnimal) =>
+                    mySupportedAnimal.details.name === animal.name
+            )
+        ) {
+            toast('Already added', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
+        } else {
+            const data = { details: animal, donate: 0 };
+            toast('Added to Your supported list!', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
+        }
+    };
 
     function generatePhoto() {
         const randomIndex = Math.floor(Math.random() * 20);
@@ -99,20 +130,6 @@ export default function Animal({
     return (
         <div /* className='card' */>
             <div className={animal.name}>
-                <div>
-                    <button
-                        className='heart'
-                        onClick={(e) => {
-                            handleSupport(e);
-                            setRender(true);
-                            notify();
-                        }}
-                    >
-                        <span class='material-symbols-outlined'>
-                            heart_plus
-                        </span>
-                    </button>
-                </div>
                 <img
                     src={
                         animal.photos.length !== 0
@@ -124,7 +141,19 @@ export default function Animal({
                     width='150'
                 />
                 <div className='animalname'>
-                    <div className='name'>{animal.name}</div>
+                    {animal.name}
+                    <br></br>
+                    <button
+                        onClick={(e) => {
+                            handleSupport(e);
+                            setRender(true);
+                            notify();
+                        }}
+                    >
+                        <span className='material-symbols-outlined'>
+                            heart_plus
+                        </span>
+                    </button>
                 </div>
                 <div>{animal.gender}</div>
                 <div>{animal.contact.email}</div>
@@ -135,8 +164,7 @@ export default function Animal({
                 <ToastContainer />
                 {showSupported && (
                     <button onClick={(event) => handleDelete(event)}>
-                        
-                        <span class='material-symbols-outlined'>
+                        <span className='material-symbols-outlined'>
                             heart_minus
                         </span>
                     </button>
