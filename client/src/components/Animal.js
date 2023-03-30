@@ -1,10 +1,14 @@
 import React from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
 export default function Animal({
     animal,
     mySupportedAnimals,
     setMySupportedAnimals,
-    setRender
+    setRender,
+    showSupported,
 }) {
     function handleSupport(e) {
         e.preventDefault();
@@ -25,7 +29,6 @@ export default function Animal({
                 console.log(error);
             });
         console.log(data);
-        
     }
 
     function handleDelete(event) {
@@ -73,37 +76,60 @@ export default function Animal({
         'https://i.pinimg.com/564x/b4/06/15/b406156171c45aa713dfffbe77c7994b.jpg',
         'https://media.istockphoto.com/id/1324688523/photo/a-australian-cattle-dog-puppy-full-length-portrait.jpg?s=612x612&w=0&k=20&c=0dN4QD37lvdvYvzWdB_xlDvC3c3LMNpR41iwViFAnN0=',
         'https://i.guim.co.uk/img/media/a4840fd090eca923e37526863e3cc586bebff97d/830_508_5593_3356/master/5593.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=335d45c40fa3f7c7564030ebdfc1c7c1',
-        'https://www.thesprucepets.com/thmb/qTKqY8BStGBtyMM34ZRMIQdRfVQ=/750x0/filters:no_upscale():strip_icc()/Daisy-d1308a01583d457990a2f1de5d0962f0.jpg'
-    ]
-    
+        'https://www.thesprucepets.com/thmb/qTKqY8BStGBtyMM34ZRMIQdRfVQ=/750x0/filters:no_upscale():strip_icc()/Daisy-d1308a01583d457990a2f1de5d0962f0.jpg',
+    ];
+
+    const notify = () => toast('Added to Your supported list!', {
+position: "bottom-right",
+autoClose: 5000,
+hideProgressBar: true,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+});
+
+
     function generatePhoto() {
         const randomIndex = Math.floor(Math.random() * 20);
         return dogPhotos[randomIndex];
     }
 
-
     return (
         <div /* className='card' */>
-        <div className={animal.name}>
-            <div><strong>{animal.name}</strong></div>
-            <div>{animal.gender}</div>
-            <div>{animal.contact.email}</div>
-            <div>City: {animal.contact.address.city}</div>
-            <img
-                src={
-                    animal.photos.length !== 0
-                        ? animal.photos[0].large
-                        //: 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg'
-                        : generatePhoto()
-                }
-                alt='dog'
-                width='150'
-            />
-            <br></br>
-            <button onClick={(e)=>{handleSupport(e); setRender(true)}} >Support</button>
-            <button onClick={(event) => handleDelete(event)}>Delete</button>
-        </div>
+            <div className={animal.name}>
+                <img
+                    src={
+                        animal.photos.length !== 0
+                            ? animal.photos[0].large
+                            : //: 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg'
+                              generatePhoto()
+                    }
+                    alt='dog'
+                    width='150'
+                />
+                <div className='animalname'>
+                    {animal.name}<button
+                    onClick={(e) => {
+                        handleSupport(e);
+                        setRender(true);
+                        notify()
+                    }}
+                    
+                >
+                    Support
+                </button>
+                </div>
+                <div>{animal.gender}</div>
+                <div>{animal.contact.email}</div>
+                <div>City: {animal.contact.address.city}</div>
 
+                <br></br>
+                
+                <ToastContainer />
+                {showSupported && <button onClick={(event) => handleDelete(event)}>Delete</button>}
+            </div>
         </div>
     );
 }
