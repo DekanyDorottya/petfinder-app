@@ -41,7 +41,10 @@ select {
 .description,
 .success {
     background-color: #eeba30;
-    padding: 50px;
+    padding: 30px;
+}
+.successDescription{
+    float: left;
 }
 
 .successImg {
@@ -62,24 +65,49 @@ p {
 }
 
 .card {
+    position: relative;
     object-fit: cover;
     color: white;
     text-align: center;
-    /* width: 250px; */
     margin: 20px;
     padding: 0px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: #29191ae6;
 }
+
 .card img {
+    position: relative;
     width: auto;
     height: 300px;
     border-radius: 5px;
+}
+.deleteButton{
+    position: absolute;
+    top: 3%; /* adjust this value to position the button vertically */
+    left: 10px; /* adjust this value to position the button horizontally */
+    min-width: 50px
+}
 
+.supportAddButton{
+    position: absolute;
+    top: 3%; /* adjust this value to position the button vertically */
+    left: 10px; /* adjust this value to position the button horizontally */
+    min-width: 50px
+}
+
+input.submitBtn{
+    position: absolute;
+    top: 90%; /* adjust this value to position the button vertically */
+    left: 10px; /* adjust this value to position the button horizontally */
+    min-width: 50px
+}
+input.donateInput{
+    float: right;
 }
 
 select, .supportedBtn {
+    
   width: 200px;
   display: flex;
   align-items: center;
@@ -96,9 +124,12 @@ select, .supportedBtn {
   margin: 5px;
 }
 
+
+
 button,
 .submitBtn {
 /*     float: right; */
+
     display: inline-block;
     outline: 0;
     cursor: pointer;

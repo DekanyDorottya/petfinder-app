@@ -390,74 +390,7 @@
     },
     
     
-    {
-        "id": 61809946,
-        "organization_id": "CA190",
-        "url": "https://www.petfinder.com/dog/sophia-61809946/ca/escondido/san-diego-humane-society-escondido-campus-ca190/?referrer_id=6ea4ef66-e96c-4630-a7b2-190c620aff1e",
-        "type": "Dog",
-        "species": "Dog",
-        "breeds": {
-            "primary": "Chihuahua",
-            "secondary": "Miniature Pinscher",
-            "mixed": true,
-            "unknown": false
-        },
-        "colors": {
-            "primary": null,
-            "secondary": null,
-            "tertiary": null
-        },
-        "age": "Baby",
-        "gender": "Female",
-        "size": "Medium",
-        "coat": null,
-        "attributes": {
-            "spayed_neutered": false,
-            "house_trained": false,
-            "declawed": null,
-            "special_needs": false,
-            "shots_current": true
-        },
-        "environment": {
-            "children": null,
-            "dogs": null,
-            "cats": null
-        },
-        "tags": [],
-        "name": "Sophia",
-        "description": "How Sophia arrived: Sophia was brought in by a Good Samaritan on 3/21/23. At SDHS: Sophia has been vaccinated, microchipped...",
-        "organization_animal_id": "854863",
-        "photos": [],
-        "primary_photo_cropped": null,
-        "videos": [],
-        "status": "adoptable",
-        "status_changed_at": "2023-03-29T17:38:26+0000",
-        "published_at": "2023-03-29T17:38:25+0000",
-        "distance": null,
-        "contact": {
-            "email": null,
-            "phone": "(619) 299-7012",
-            "address": {
-                "address1": "3500 Burnet Dr",
-                "address2": null,
-                "city": "Escondido",
-                "state": "CA",
-                "postcode": "92027",
-                "country": "US"
-            }
-        },
-        "_links": {
-            "self": {
-                "href": "/v2/animals/61809946"
-            },
-            "type": {
-                "href": "/v2/types/dog"
-            },
-            "organization": {
-                "href": "/v2/organizations/ca190"
-            }
-        }
-    },
+    
     
     
     {

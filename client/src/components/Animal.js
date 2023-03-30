@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -46,8 +48,7 @@ export default function Animal({
         console.log('this needs to be deleted');
         console.log(event.target.parentElement.className);
 
-
-        mySupportedAnimals.forEach(async function (supportedAnimal){
+        mySupportedAnimals.forEach(async function (supportedAnimal) {
             if (animal.name === supportedAnimal.details.name) {
                 console.log(supportedAnimal._id); //delete this one
 
@@ -62,10 +63,9 @@ export default function Animal({
                             mySupportedAnimal._id !== data.result._id
                     )
                 );
-
             }
-        })
-/* 
+        });
+        /* 
         mySupportedAnimals.forEach(async function (supportedAnimal) {
             console.log(supportedAnimal.details.name);
             if (
@@ -140,6 +140,7 @@ export default function Animal({
     return (
         <div /* className='card' */>
             <div className={animal.name}>
+                
                 <img
                     src={
                         animal.photos.length !== 0
@@ -150,25 +151,23 @@ export default function Animal({
                     alt='dog'
                     width='150'
                 />
+                <button className='supportAddButton'
+                    onClick={(e) => {
+                        handleSupport(e);
+                        setRender(true);
+                        notify();
+                    }}
+                >
+                    <span className='material-symbols-outlined'>
+                        heart_plus
+                    </span>
+                </button>
                 <div className='animalname'>
                     {animal.name}
                     <br></br>
-{/*                     {!showSupported && 
+                    {/*                     {!showSupported && 
                         
                     } */}
-                    <button
-                        onClick={(e) => {
-                            handleSupport(e);
-                            setRender(true);
-                            notify();
-                        }}
-                    >
-
-
-                        <span className='material-symbols-outlined'>
-                            heart_plus
-                        </span>
-                    </button>
                 </div>
                 <div>{animal.gender}</div>
                 <div>{animal.contact.email}</div>
@@ -178,12 +177,14 @@ export default function Animal({
 
                 <ToastContainer />
                 {showSupported && (
-                    <button >
-                        
-                        <span onClick={(event) => handleDelete(event)} className='material-symbols-outlined'>
+                    <button className='deleteButton'>
+                        <span
+                            onClick={(event) => handleDelete(event)}
+                            className='material-symbols-outlined'
+                        >
                             heart_minus
                         </span>
-                        
+
                         {/* Remove */}
                     </button>
                 )}
