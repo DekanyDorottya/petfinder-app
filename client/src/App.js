@@ -8,6 +8,9 @@ import StorySlider from './components/StorySlider';
 import animalsTest from './animalsTest';
 import Pagination from './components/Pagination';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 //import animalsTest from './animalsTest';
 
 function App() {
@@ -17,6 +20,8 @@ function App() {
     const [showSupported, setShowSupported] = useState(false);
     const [render, setRender] = useState(false);
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
+    const [donatedAmount, setdonatedAmount] = useState(null);
+
 
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
@@ -79,6 +84,8 @@ function App() {
         const donateAmount = event.target[0].value;
         const obj = { donateAmount };
         console.log(obj);
+       
+        console.log(donateAmount);
 
         const animalId = event.target.className;
         console.log(animalId);
@@ -95,6 +102,7 @@ function App() {
             .catch((error) => {
                 console.log(error);
             });
+            setdonatedAmount(obj)
     }
 
     const indexOfLastPost = currentPage * postsPerPage;
@@ -155,7 +163,18 @@ function App() {
                             />
                             <form
                                 className={animal._id}
-                                onSubmit={(event) => handleSubmit(event)}
+                                onSubmit={(event) => {handleSubmit(event);  
+                                    toast(`${animal.details.name} appreciates it!`, {
+                                        position: 'bottom-right',
+                                        autoClose: 5000,
+                                        hideProgressBar: true,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        theme: 'light',
+                                    })
+                                }}
                             >
                                 <label>
                                     <input className='donateInput' type='text' />
