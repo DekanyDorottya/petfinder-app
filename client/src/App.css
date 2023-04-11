@@ -163,3 +163,11 @@ select:hover,
 .donateInput {
   margin: 5px;
 }
+
+.pagination {
+    margin: 30px;
+}
+
+.active {
+    background-color: #29191a;
+}
