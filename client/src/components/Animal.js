@@ -5,6 +5,11 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
+
 export default function Animal({
     animal,
     mySupportedAnimals,
@@ -44,10 +49,27 @@ export default function Animal({
             console.log(data);
         }
     }
+    const submit = (event) => {
+
+        confirmAlert({
+          title: 'Confirm to submit',
+          message: 'Are you sure to do this.',
+          buttons: [
+            {
+              label: 'Yes',
+              onClick: (event) => handleDelete(event)
+            },
+            {
+              label: 'No',
+              //onClick: () => alert('Click No')
+            }
+          ]
+        });
+      }
 
     function handleDelete(event) {
-        console.log('this needs to be deleted');
-        console.log(event.target.parentElement.className);
+        //console.log('this needs to be deleted');
+        //console.log(event.target.parentElement.className);
 
         mySupportedAnimals.forEach(async function (supportedAnimal) {
             if (animal.name === supportedAnimal.details.name) {
@@ -192,7 +214,7 @@ export default function Animal({
                 {showSupported && (
                     <button className='deleteButton'>
                         <span
-                            onClick={(event) => {handleDelete(event);deleteNotify(animal.name)}}
+                            onClick={(event) => {submit(event);deleteNotify(animal.name)}}
                             className='material-symbols-outlined'
                         >
                             heart_minus
