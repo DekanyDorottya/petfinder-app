@@ -8,6 +8,11 @@ import StorySlider from './components/StorySlider';
 import animalsTest from './animalsTest';
 import Pagination from './components/Pagination';
 
+
+
+
+
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -77,6 +82,8 @@ function App() {
             .catch((err) => console.error(err));
             console.log(allTheAnimals);
     }, []); */
+
+    
 
     function handleSubmit(event) {
         event.preventDefault();
