@@ -6,6 +6,7 @@ import Description from './components/Description';
 import SuccessStory from './components/SuccessStory';
 import StorySlider from './components/StorySlider';
 import animalsTest from './animalsTest';
+import Pagination from './components/Pagination';
 
 //import animalsTest from './animalsTest';
 
@@ -16,6 +17,9 @@ function App() {
     const [showSupported, setShowSupported] = useState(false);
     const [render, setRender] = useState(false);
     const [mySupportedAnimals, setMySupportedAnimals] = useState([]);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(10);
 
     let key = 'Qnf0v9mZMNiNvet4d91zGjYvvE7NsOnMuBI7V7DZTRFowW4yFE';
     let secret = 'DQUXkBubeEbnfTcbpAElINe0l90GYKDcqMEfxFJw';
@@ -93,6 +97,10 @@ function App() {
             });
     }
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = allTheAnimals.slice(indexOfFirstPost, indexOfLastPost);
+
     return (
         <div className='App'>
             <Header
@@ -108,7 +116,7 @@ function App() {
 
                 {!filteredAnimals &&
                     !showSupported &&
-                    allTheAnimals.map((animal, index) => (
+                    currentPosts.map((animal, index) => (
                         <div className='card'>
                             <Animal
                                 animal={animal}
@@ -162,6 +170,13 @@ function App() {
                         </div>
                     ))}
             </div>
+
+            <Pagination 
+                totalPosts={allTheAnimals.length}
+                postsPerPage={postsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+            />
 
             {!filteredAnimals && !showSupported && <SuccessStory />}
         </div>
