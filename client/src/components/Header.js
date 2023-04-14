@@ -4,14 +4,6 @@ function Header(props) {
     const setShowSupported = props.setShowSupported;
     const showSupported = props.showSupported;
 
-    function handleType(event) {
-        console.log(event.target.value);
-
-        const filtCharacters = allTheAnimals.filter((animalObj) =>
-            animalObj.type.includes(event.target.value)
-        );
-        setFilteredAnimals(filtCharacters);
-    }
 
     function handleGender(event) {
         console.log(event.target.value);
@@ -29,19 +21,25 @@ function Header(props) {
     function handleBackFromSupportedAnimals() {
         setShowSupported(false);
     }
+
+    function handleSearchBarChange(e) {
+        const filteredAnimlas = allTheAnimals.filter((animalObj) =>
+            animalObj.name.toLowerCase().includes(e.target.value.toLowerCase())
+        );
+        setFilteredAnimals(filteredAnimlas);
+    }
+
     return (
         <div className='sticky'>
             <div className='header'>
+                <div>
+                    <input
+                        type='text'
+                        onChange={(e) => handleSearchBarChange(e)}
+                    />
+                </div>
+
                 <div className='search'>
-                    {/*                     <select
-                        id='type'
-                        name='type'
-                        onChange={(event) => handleType(event)}
-                    >
-                        <option value=''>Choose a type...</option>
-                        <option value='Dog'>Dog</option>
-                        <option value='Cat'>Cat</option>
-                    </select> */}
 
                     <select
                         id='gender'
