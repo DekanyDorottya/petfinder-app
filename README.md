@@ -14,21 +14,21 @@ This is a web application built using Node.js with Express for the server-side a
 
 Before running the application, make sure you have the following installed:
 
-- Node.js and npm (Node Package Manager)
-- MongoDB (or a cloud-based MongoDB service)
+- Node.js and npm
+- MongoDB 
 
 ## Installation
 
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:DekanyDorottya/petfinder-app.git
    ```
 
 2. Change into the project directory:
 
    ```bash
-   cd animal-support-donation-app
+   cd petfinder-app
    ```
 
 3. Install server-side dependencies:
@@ -44,10 +44,9 @@ Before running the application, make sure you have the following installed:
    cd ../client
    npm install
    ```
-
 5. Configure MongoDB:
    
-   - Replace the MongoDB connection string in `server/index.js` with your own.
+   - Replace the MongoDB connection string in `server/server.js` with your own.
 
 6. Start the server and client:
 
