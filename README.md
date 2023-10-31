@@ -53,7 +53,7 @@ Before running the application, make sure you have the following installed:
    - In the `server` directory, run:
 
      ```bash
-     npm start
+     nodemon server.js
      ```
 
    - In the `client` directory, run:
